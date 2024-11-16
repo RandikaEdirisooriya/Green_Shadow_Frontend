@@ -1,0 +1,138 @@
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, rgba(47, 47, 47, 0.98) 0%, #011117 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container {
+    background: rgba(167, 167, 168, 0.13);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 9px 40px rgba(0, 234, 255, 0.14);
+    /*  box-shadow: 0 9px 40px rgb(17, 12, 15);*/
+}
+
+.logo {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #00e0ff, #00ffa0);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+}
+
+.logo-icon {
+    color: #00e0ff;
+    font-size: 28px;
+}
+
+h1 {
+    color: rgba(0, 255, 160, 0.91);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-align: center;
+
+}
+
+.form-control {
+    background: rgba(0, 230, 200, 0.1);
+    border: none;
+    color: #00e0ff;
+    padding: 0.8rem 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    background: rgba(0, 230, 200, 0.2);
+    box-shadow: 0 0 0 2px rgba(0, 230, 200, 0.5);
+}
+
+.form-control::placeholder {
+    color: rgba(0, 230, 200, 0.6);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #00e0ff, rgba(0, 255, 149, 0.49));
+    border: none;
+    padding: 0.8rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #00c8e5, #00e090);
+    transform: translateY(-2px);
+}
+
+.btn-google {
+    background: rgba(0, 230, 200, 0.1);
+    color: #00e0ff;
+    border: none;
+    padding: 0.8rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-google:hover {
+    background: rgba(0, 230, 200, 0.2);
+}
+
+.signup-link {
+    color: #00ffa0;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.signup-link:hover {
+    color: #00e0ff;
+}
+
+.users-count {
+    color: rgba(0, 230, 200, 0.6);
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+.users-count strong {
+    color: #00ffa0;
+    font-weight: 600;
+}
+/* Default color for the eye icon */
+.eye-icon {
+    fill: currentColor;
+    transition: fill 0.3s ease;
+}
+
+/* Change color on hover */
+.eye-icon:hover {
+    fill: #00e0ff; /* Blue color on hover */
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+}
+
+.floating {
+    animation: float 6s ease-in-out infinite;
+}
