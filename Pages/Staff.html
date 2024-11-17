@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Staff</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css">
+
+<link rel="stylesheet" href="../assets/Styles/navBarAndsidebar.css">
+<link rel="stylesheet" href="../assets/Styles/staff.css">
+
+<link rel="icon" type="image/png" href="../assets/Images/logo.png">
+<style>
+    .modal-content {
+        position: relative;
+        z-index: 1050; /* Ensure modal content appears above the overlay */
+    }
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.48); /* Adjust opacity here */
+        z-index: 1040; /* Make sure it’s above other elements but below the modal */
+        display: none; /* Initially hidden */
+    }
+
+    .glass-container {
+        margin-top: calc(var(--header-height) + 1rem);
+        margin-left: calc(var(--nav-width) + 1rem);
+        padding: 1rem;
+        transition: 0.4s;
+    }
+    .glass-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+    .glass-card {
+        background: linear-gradient(135deg, rgba(47, 47, 47, 0.98) 0%, rgba(118, 255, 179, 0.04) 100%);
+        backdrop-filter: blur(10px);
+        border-radius: 16px;
+        border: 1px solid var(--glass-border);
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+        box-shadow: 0 10px 15px rgba(4, 19, 21, 0.55);
+    }
+    .table-container {
+        background: rgba(255, 255, 255, 0);
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        padding: 20px;
+    }
+
+    .btn-primary {
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: white;
+        backdrop-filter: blur(5px);
+    }
+    .btn-primary:hover {
+        background: rgba(82, 249, 255, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: white;
+        backdrop-filter: blur(5px);
+    }
+
+    .btn-light {
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: white;
+        backdrop-filter: blur(5px);
+    }
+
+    .table {
+        margin-top: 20px;
+        background-color: transparent !important;
+
+    }
+
+    .table th {
+        font-weight: 500;
+        font-weight: bold;
+        text-shadow: rgba(0, 0, 0, 0.79) 0.2em 0.2em 0.2em;
+        color: rgba(6, 171, 133, 0.87);
+
+        background-color: transparent !important;
+
+    }
+    .table td {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.58);
+        background-color: transparent !important;
+    }
+
+    .avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    .user-role {
+        padding: 4px 8px;
+        border-radius: 15px;
+        font-size: 14px;
+        background: rgba(248, 249, 250, 0.02);
+
+
+    }
+
+    .role-admin {
+        background: rgba(227, 242, 253, 0.14);
+        color: rgba(118, 255, 179, 0.54);
+    }
+
+    .role-moderator {
+        background: #f3e5f5;
+        color: #9c27b0;
+    }
+
+    .role-viewer {
+        background: rgba(245, 245, 245, 0.14);
+        color: rgba(134, 8, 34, 0.53);
+    }
+
+    .status-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: 6px;
+    }
+
+    .status-active {
+        background: #4caf50;
+    }
+
+    .status-inactive {
+        background: #f44336;
+    }
+
+    .social-icons i {
+        color: #6c757d;
+        margin-right: 8px;
+        font-size: 14px;
+    }
+
+    .form-switch {
+        padding-left: 2.5em;
+    }
+
+    .rating {
+        font-weight: 500;
+    }
+
+    .rating-up {
+        color: #4caf50;
+    }
+
+    .rating-down {
+        color: #f44336;
+    }
+
+    .pagination {
+        margin-bottom: 0;
+    }
+
+    .rows-select {
+        color: #6c757d;
+        font-size: 14px;
+    }
+
+    .action-btns {
+        display: flex;
+        align-items: center;
+    }
+
+    .action-btns .btn-link {
+        font-size: 14px;
+    }
+
+    .action-btns .btn-link:hover {
+        transform: translateY(-8px) scale(1.0);
+        opacity: 0.8;
+    }
+    .tbody{
+        background: rgba(255, 255, 255, 0);
+
+    }
+    .glass-card:hover {
+        transform: translateY(-8px) scale(1.0);
+        box-shadow: 0 0 25px rgba(0, 255, 208, 0.12), 0 0 50px rgba(0, 224, 255, 0.13);
+    }
+    .modal{
+        background: rgba(17, 12, 15, 0.55) !important;
+        width: 100vw !important;
+    }
+
+
+
+
+    .modal-content {
+        background: rgba(167, 167, 168, 0.03);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 1.5rem; /* Slightly increased padding */
+        width: 100%;
+        max-width: 450px; /* Slightly increased max-width */
+        box-shadow: 0 9px 40px rgba(0, 234, 255, 0.14);
+    }
+
+    .logo {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #00e0ff, #00ffa0);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem;
+    }
+
+    .logo-icon {
+        color: #00e0ff;
+        font-size: 24px;
+    }
+
+    h1 {
+        color: rgba(0, 255, 160, 0.59);
+        font-weight: 700;
+        margin-bottom: 1rem; /* Slightly increased margin */
+        text-align: center;
+        font-size: 1.4rem; /* Slightly increased font size */
+    }
+
+    .form-control1 {
+        background: rgba(0, 230, 200, 0.07);
+        border: none;
+        width: 100%;
+        color: #ffffff;
+        padding: 0.4rem 0.8rem; /* Slightly increased padding */
+        margin-bottom: 0.6rem; /* Slightly increased margin */
+        transition: all 0.3s ease;
+        font-size: 0.85rem; /* Slightly increased font size */
+        border-radius: 10px;
+    }
+
+    .form-control1:focus {
+        background: rgba(0, 230, 200, 0.2);
+        box-shadow: 0 0 0 2px rgba(0, 230, 200, 0.5);
+    }
+
+    .form-control1::placeholder {
+        color: rgba(0, 230, 200, 0.6);
+    }
+
+    .btn-primary1 {
+        background: linear-gradient(135deg, #00e0ff, rgba(0, 255, 149, 0.49));
+        border: none;
+        padding: 0.6rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        font-size: 0.85rem; /* Slightly increased font size */
+        border-radius: 20px;
+    }
+
+    .btn-primary1:hover {
+        background: linear-gradient(135deg, #00c8e5, #00e090);
+        transform: translateY(-2px);
+    }
+
+
+
+    .signup-link {
+        color: #00ffa0;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 0.85rem; /* Slightly increased font size */
+    }
+
+    .signup-link:hover {
+        color: #00e0ff;
+    }
+
+
+
+    .users-count strong {
+        color: #00ffa0;
+        font-weight: 600;
+    }
+
+
+
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-8px); }
+        100% { transform: translateY(0px); }
+    }
+
+    .floating {
+        animation: float 6s ease-in-out infinite;
+    }
+
+   </style>
+<!--this is style for modle -->
+</head>
+<body>
+<header class="header d-flex justify-content-between align-items-center">
+    <div class="header_toggle">
+        <i class="bi bi-list" id="header-toggle"></i>
+    </div>
+    <div class="search-container me-1">
+        <input type="text" class="form-control" placeholder="Search...">
+    </div>
+    <div class="d-flex align-items-center">
+        <button class="icon-btn">
+            <i class="bi bi-bell"></i>
+        </button>
+        <button class="icon-btn">
+            <i class="bi bi-gear"></i>
+        </button>
+        <img src="../assets/Images/avatar.png?height=30&width=30" alt="Profile" class="profile-avatar ms-2">
+    </div>
+</header>
+<div class="l-navbar" id="nav-bar">
+    <nav class="nav">
+        <div>
+            <br>
+            <div class="nav_list">
+                <a href="#" class="nav_link">
+                    <i class="bi bi-house-door nav_icon"></i> <!-- Home -->
+                    <span class="nav_name">Home</span>
+                </a>
+                <a href="#" class="nav_link active">
+                    <i class="bi bi-person nav_icon"></i> <!-- Staff -->
+                    <span class="nav_name">Staff</span>
+                </a>
+                <a href="#" class="nav_link">
+                    <i class="bi bi-person-lines-fill nav_icon"></i> <!-- Field -->
+                    <span class="nav_name">Field</span>
+                </a>
+                <a href="#" class="nav_link">
+                    <i class="bi bi-graph-up nav_icon"></i> <!-- Crop -->
+                    <span class="nav_name">Crop</span>
+                </a>
+                <a href="#" class="nav_link">
+                    <i class="bi bi-tools nav_icon"></i> <!-- Equipment -->
+                    <span class="nav_name">Equipment</span>
+                </a>
+                <a href="#" class="nav_link">
+                    <i class="bi bi-truck nav_icon"></i> <!-- Vehicles -->
+                    <span class="nav_name">Vehicles</span>
+                </a>
+                <a href="#" class="nav_link">
+                    <i class="bi bi-bookmark nav_icon"></i>
+                    <span class="nav_name">Logs</span>
+                </a>
+                <br><br>
+                <a href="#" class="nav_link">
+                    <i class="bi bi-box-arrow-left nav_icon"></i> <!-- Logout -->
+                    <span class="nav_name">Logout</span>
+                </a>
+            </div>
+
+
+        </div>
+    </nav>
+</div>
+
+<div class="glass-container">
+    <div class="content">
+        <div class="d-flex justify-content-between align-items-center mb-5">
+            <h2>Staff</h2>
+            <span id="current-time" class="header-time"></span>
+        </div>
+
+        <!-- Glass Cards -->
+        <div class="glass-cards">
+            <div class="glass-card" >
+                <div class="table-container">
+                    <!-- Header Actions -->
+                    <div class="d-flex justify-content-between align-items-center">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalLong">
+                            <i class="bi bi-plus"></i> Add new staff
+                        </button>
+                        <!--<div class="action-buttons">
+                            <button class="btn btn-light">Suspend all</button>
+                            <button class="btn btn-light">Archive all</button>
+                            <button class="btn btn-light">Delete all</button>
+                        </div>-->
+                    </div>
+
+                    <!-- Table -->
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>ROLE</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Designation</th>
+                                <th>Gender</th>
+                                <th>Joined Date</th>
+                                <th>DOB</th>
+                                <th>Address</th>
+                                <th>Contact Number</th>
+                                <th>Email</th>
+                                <th>ACTIONS</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <!-- User Row 1 -->
+                            <tr class="tbody">
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <span>S001</span>
+                                    </div>
+                                </td>
+                                <td>
+                    <span class="user-role role-admin">
+                        <i class="bi bi-shield-check"></i> Administrator
+                    </span>
+                                </td>
+                                <td>
+                                    Randika
+                                </td>
+                                <td class="social-icons">
+                                   Bandara
+                                </td>
+                                <td>
+                                  SCIENTISTS
+                                </td>
+                                <td>
+                    <span class="rating rating-up">
+                       MALE
+                    </span>
+                                </td>
+                                <td>20 Nov 2022</td>
+                                <td>25 Dec 1990</td>
+                                <td>123 Main St, City, Country</td>
+                                <td>+123456789</td>
+                                <td>jese@example.com</td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="btn btn-link text-warning p-0 me-2">
+                                            <i class="bi bi-pencil-fill"></i>
+                                        </button>
+                                        <button class="btn btn-link text-danger p-0">
+                                            <i class="bi bi-trash-fill"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="tbody">
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <span>S001</span>
+                                    </div>
+                                </td>
+                                <td>
+                    <span class="user-role role-viewer">
+                        <i class="bi bi-eye"></i> Viewer
+                    </span>
+                                </td>
+                                <td>
+                                    Randika
+                                </td>
+                                <td class="social-icons">
+                                   Bandara
+                                </td>
+                                <td>
+                                  SCIENTISTS
+                                </td>
+                                <td>
+                    <span class="rating rating-up">
+                       MALE
+                    </span>
+                                </td>
+                                <td>20 Nov 2022</td>
+                                <td>25 Dec 1990</td>
+                                <td>123 Main St, City, Country</td>
+                                <td>+123456789</td>
+                                <td>jese@example.com</td>
+                                <td>
+                                    <div class="action-btns">
+                                        <button class="btn btn-link text-warning p-0 me-2">
+                                            <i class="bi bi-pencil-fill"></i>
+                                        </button>
+                                        <button class="btn btn-link text-danger p-0">
+                                            <i class="bi bi-trash-fill"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+
+<!-- Full-Screen Modal -->
+<!-- Full-Screen Modal -->
+<div class="modal" id="exampleModalLong"  aria-labelledby="exampleModalLongTitle" >
+
+    <div class="modal-dialog " role="document">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="logo floating">
+                    <span class="logo-icon">🌳</span>
+                </div>
+<br>
+                <h1>Add Staff</h1>
+                <button type="button" class="btn-close" style="color: red" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="login-container1">
+
+                <form>
+                    <div class="mb-1">
+                        <input type="text" class="form-control1" id="userCode" placeholder="Staff Code" required aria-label="StaffCode" disabled style="background-color: rgba(0,230,200,0.08); color: rgba(255,255,255,0.59);">
+                    </div>
+                    <div class="mb-1">
+                        <input type="text" class="form-control1" placeholder="First Name" required aria-label="FirstName">
+                    </div>
+
+                    <div class="mb-1">
+                        <input type="text" class="form-control1" placeholder="Last Name" required aria-label="LastName">
+                    </div>
+                    <div class="mb-1">
+                        <input type="text" class="form-control1" placeholder="Designation" required aria-label="Designation">
+                    </div>
+                    <div class="mb-1">
+                        <input type="text" class="form-control1" placeholder="Building Name" required aria-label="Building name">
+                    </div>
+                    <div class="mb-1">
+                        <input type="text" class="form-control1" placeholder="Lane Name" required aria-label="Lane name">
+                    </div>
+                    <div class="mb-1">
+                        <input type="text" class="form-control1" placeholder="City" required aria-label="City">
+                    </div>
+                    <div class="mb-1">
+                        <input type="text" class="form-control1" placeholder="Postal Code" required aria-label="Postal Code">
+                    </div>
+
+
+                    <div class="mb-1">
+                        <input type="text" class="form-control1" placeholder="Gender" required aria-label="Gender">
+                    </div>
+                    <div class="mb-1">
+                        <input type="email" class="form-control1" placeholder="Email" required aria-label="Email">
+                    </div>
+
+
+                    <div class="mb-1">
+                        <input type="text" class="form-control1" placeholder="Role" required aria-label="Role">
+                    </div>
+
+
+                    <button type="submit" class="btn1 btn-primary1 w-100 mb-3">ADD STAFF</button>
+
+                </form>
+            </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Overlay to fade in behind modal -->
+<div class="overlay"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="../javascript/sidebar.js"></script>
+<script>
+    $(document).ready(function() {
+        // Generate the next User Code dynamically
+        var userCodeInput = $("#userCode");
+        var currentCode = localStorage.getItem("lastStaffCode") || "S000"; // Set the starting user code to U000
+
+        // Increment and set the next user code
+        currentCode = incrementUserCode(currentCode);
+        userCodeInput.val(currentCode);
+
+        // Store the last used code
+        localStorage.setItem("lastStaffCode", currentCode);
+    });
+
+    // Function to increment the user code
+    function incrementUserCode(code) {
+        var numberPart = parseInt(code.substring(1));
+        var incremented = numberPart + 1;
+        var paddedNumber = incremented.toString().padStart(3, '0');
+        return "S" + paddedNumber;
+    }
+</script>
+
+
+</body>
+</html>
