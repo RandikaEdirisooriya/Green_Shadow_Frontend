@@ -80,7 +80,7 @@
 <div class="glass-container">
     <div class="content">
         <div class="d-flex justify-content-between align-items-center mb-5">
-            <h2>Field</h2>
+            <h2>Vehicle</h2>
             <span id="current-time" class="header-time"></span>
         </div>
 
@@ -112,16 +112,12 @@
                             <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>ROLE</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Designation</th>
-                                <th>Gender</th>
-                                <th>Joined Date</th>
-                                <th>DOB</th>
-                                <th>Address</th>
-                                <th>Contact Number</th>
-                                <th>Email</th>
+                                <th>Status</th>
+                                <th>Plate Number</th>
+                                <th>Category</th>
+                                <th>Fuel Type</th>
+                                <th>Staff</th>
+
                                 <th>ACTIONS</th>
                             </tr>
                             </thead>
@@ -130,33 +126,27 @@
                             <tr class="tbody">
                                 <td>
                                     <div class="d-flex align-items-center">
-                                        <span>S001</span>
+                                        <span>V001</span>
                                     </div>
                                 </td>
                                 <td>
                     <span class="user-role role-admin">
-                        <i class="bi bi-shield-check"></i> Administrator
+                        <i class="bi bi-dot"></i> Available
                     </span>
                                 </td>
                                 <td>
-                                    Randika
+                                    cv-1315
                                 </td>
-                                <td class="social-icons">
-                                    Bandara
-                                </td>
-                                <td>
-                                    SCIENTISTS
-                                </td>
+
+
                                 <td>
                     <span class="rating rating-up">
-                       MALE
+                       VAN
                     </span>
                                 </td>
-                                <td>20 Nov 2022</td>
-                                <td>25 Dec 1990</td>
-                                <td>123 Main St, City, Country</td>
-                                <td>+123456789</td>
-                                <td>jese@example.com</td>
+                                <td>Octane 92</td>
+                                <td>S001</td>
+
                                 <td>
                                     <div class="action-btns">
                                         <button class="btn btn-link text-warning p-0 me-2">
@@ -168,47 +158,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr class="tbody">
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <span>S001</span>
-                                    </div>
-                                </td>
-                                <td>
-                    <span class="user-role role-viewer">
-                        <i class="bi bi-eye"></i> Viewer
-                    </span>
-                                </td>
-                                <td>
-                                    Randika
-                                </td>
-                                <td class="social-icons">
-                                    Bandara
-                                </td>
-                                <td>
-                                    SCIENTISTS
-                                </td>
-                                <td>
-                    <span class="rating rating-up">
-                       MALE
-                    </span>
-                                </td>
-                                <td>20 Nov 2022</td>
-                                <td>25 Dec 1990</td>
-                                <td>123 Main St, City, Country</td>
-                                <td>+123456789</td>
-                                <td>jese@example.com</td>
-                                <td>
-                                    <div class="action-btns">
-                                        <button class="btn btn-link text-warning p-0 me-2">
-                                            <i class="bi bi-pencil-fill"></i>
-                                        </button>
-                                        <button class="btn btn-link text-danger p-0">
-                                            <i class="bi bi-trash-fill"></i>
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
+
 
 
                             </tbody>
@@ -238,7 +188,7 @@
                     <span class="logo-icon">🌳</span>
                 </div>
                 <br>
-                <h1>Add Staff</h1>
+                <h1>Add Vehicle</h1>
                 <button type="button" class="btn-close" style="color: red" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -246,46 +196,25 @@
 
                     <form>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" id="userCode" placeholder="Staff Code" required aria-label="StaffCode" disabled style="background-color: rgba(0,230,200,0.08); color: rgba(255,255,255,0.59);">
+                            <input type="text" class="form-control1" id="userCode" placeholder="ID" required aria-label="ID" disabled style="background-color: rgba(0,230,200,0.08); color: rgba(255,255,255,0.59);">
                         </div>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" placeholder="First Name" required aria-label="FirstName">
+                            <input type="text" class="form-control1" placeholder="Plate Number" required aria-label="Plate Number">
                         </div>
 
                         <div class="mb-1">
-                            <input type="text" class="form-control1" placeholder="Last Name" required aria-label="LastName">
+                            <input type="text" class="form-control1" placeholder="Category" required aria-label="category">
                         </div>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" placeholder="Designation" required aria-label="Designation">
+                            <input type="text" class="form-control1" placeholder="Status" required aria-label="Status">
                         </div>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" placeholder="Building Name" required aria-label="Building name">
-                        </div>
-                        <div class="mb-1">
-                            <input type="text" class="form-control1" placeholder="Lane Name" required aria-label="Lane name">
-                        </div>
-                        <div class="mb-1">
-                            <input type="text" class="form-control1" placeholder="City" required aria-label="City">
-                        </div>
-                        <div class="mb-1">
-                            <input type="text" class="form-control1" placeholder="Postal Code" required aria-label="Postal Code">
+                            <input type="text" class="form-control1" placeholder="Select Staff" required aria-label="Select Staff">
                         </div>
 
 
-                        <div class="mb-1">
-                            <input type="text" class="form-control1" placeholder="Gender" required aria-label="Gender">
-                        </div>
-                        <div class="mb-1">
-                            <input type="email" class="form-control1" placeholder="Email" required aria-label="Email">
-                        </div>
 
-
-                        <div class="mb-1">
-                            <input type="text" class="form-control1" placeholder="Role" required aria-label="Role">
-                        </div>
-
-
-                        <button type="submit" class="btn1 btn-primary1 w-100 mb-3">ADD STAFF</button>
+                        <button type="submit" class="btn1 btn-primary1 w-100 mb-3">ADD VEHICLE</button>
 
                     </form>
                 </div>
