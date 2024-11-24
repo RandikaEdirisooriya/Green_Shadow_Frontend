@@ -187,30 +187,30 @@
 
                     <form>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" id="userCode" placeholder="ID" required aria-label="ID" disabled style="background-color: rgba(0,230,200,0.08); color: rgba(255,255,255,0.59);">
+                            <input type="text" class="form-control1" id="LogID" placeholder="ID" required aria-label="ID" disabled style="background-color: rgba(0,230,200,0.08); color: rgba(255,255,255,0.59);">
                         </div>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" placeholder="Date" required aria-label="Date">
+                            <input type="text" class="form-control1" id="date" placeholder="Date" required aria-label="Date">
                         </div>
 
                         <div class="mb-1">
-                            <input type="text" class="form-control1" placeholder="Details" required aria-label="Details">
+                            <input type="text" class="form-control1" id="details" placeholder="Details" required aria-label="Details">
                         </div>
                         <div class="mb-1">
                             <label  class="form-label" style="color: rgba(0,230,200,0.56);">Select Observed Image</label>
-                            <input type="File" class="form-control1" placeholder="Observed Image" required aria-label="Observed Image">
+                            <input type="File" class="form-control1" id="observedImage" placeholder="Observed Image" required aria-label="Observed Image">
                         </div>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" placeholder="Select Section" required aria-label="Select Section">
+                            <input type="text" class="form-control1" id="section" placeholder="Select Section" required aria-label="Select Section">
                         </div>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" placeholder="Section Id" required aria-label="Section Id">
+                            <input type="text" class="form-control1" id="sectionId" placeholder="Section Id" required aria-label="Section Id">
                         </div>
 
 
 
 
-                        <button type="submit" class="btn1 btn-primary1 w-100 mb-3">ADD LOG</button>
+                        <button type="button" class="btn1 btn-primary1 w-100 mb-3" onclick="addLog()">ADD LOG</button>
 
                     </form>
                 </div>
@@ -223,6 +223,7 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="../javascript/sidebar.js"></script>
+<script src="../javascript/log.js"></script>
 
 </body>
 </html>
