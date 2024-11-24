@@ -188,36 +188,36 @@
 
                     <form>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" id="userCode" placeholder="ID" required aria-label="ID" disabled style="background-color: rgba(0,230,200,0.08); color: rgba(255,255,255,0.59);">
+                            <input type="text" class="form-control1" id="cropId" placeholder="ID" required aria-label="ID"><!-- disabled style="background-color: rgba(0,230,200,0.08); color: rgba(255,255,255,0.59);">-->
                         </div>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" placeholder="Category" required aria-label="Category">
+                            <input type="text" class="form-control1" id="category" placeholder="Category" required aria-label="Category">
                         </div>
 
                         <div class="mb-1">
-                            <input type="text" class="form-control1" placeholder="Common Name" required aria-label="Common Name">
+                            <input type="text" class="form-control1" id="commonName" placeholder="Common Name" required aria-label="Common Name">
                         </div>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" placeholder="Scientific Name" required aria-label="Scientific Name">
+                            <input type="text" class="form-control1" id="scientificName" placeholder="Scientific Name" required aria-label="Scientific Name">
                         </div>
                         <div class="mb-1">
                             <label  class="form-label" style="color: rgba(0,230,200,0.56);">Select Image</label>
 
-                            <input type="File" class="form-control1" placeholder="Select Image" required aria-label="Select Image">
+                            <input type="File" class="form-control1" id="image" placeholder="Select Image" required aria-label="Select Image">
                         </div>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" placeholder="Season" required aria-label="Season">
+                            <input type="text" class="form-control1" id="season" placeholder="Season" required aria-label="Season">
                         </div>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" placeholder="Select Field" required aria-label="Select Field">
+                            <input type="text" class="form-control1" id="field" placeholder="Select Field" required aria-label="Select Field">
                         </div>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" placeholder="Select Log" required aria-label="Select log">
+                            <input type="text" class="form-control1" id="log" placeholder="Select Log" required aria-label="Select log">
                         </div>
 
 
 
-                        <button type="submit" class="btn1 btn-primary1 w-100 mb-3">ADD CROP</button>
+                        <button type="button" class="btn1 btn-primary1 w-100 mb-3" onclick="addCrop()">ADD CROP</button>
 
                     </form>
                 </div>
@@ -230,6 +230,7 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="../javascript/sidebar.js"></script>
+<script src="../javascript/Crop.js"></script>
 
 </body>
 </html>
