@@ -2,7 +2,7 @@
 <html lang="en">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Staff</title>
+<title>Field</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css">
@@ -37,31 +37,31 @@
         <div>
             <br>
             <div class="nav_list">
-                <a href="#" class="nav_link">
+                <a href="Dashboard.html" class="nav_link">
                     <i class="bi bi-house-door nav_icon"></i> <!-- Home -->
                     <span class="nav_name">Home</span>
                 </a>
-                <a href="#" class="nav_link ">
+                <a href="Staff.html" class="nav_link ">
                     <i class="bi bi-person nav_icon"></i> <!-- Staff -->
                     <span class="nav_name">Staff</span>
                 </a>
-                <a href="#" class="nav_link active">
+                <a href="Field.html" class="nav_link active">
                     <i class="bi bi-person-lines-fill nav_icon"></i> <!-- Field -->
                     <span class="nav_name">Field</span>
                 </a>
-                <a href="#" class="nav_link">
+                <a href="Crop.html" class="nav_link">
                     <i class="bi bi-graph-up nav_icon"></i> <!-- Crop -->
                     <span class="nav_name">Crop</span>
                 </a>
-                <a href="#" class="nav_link">
+                <a href="Equipment.html" class="nav_link">
                     <i class="bi bi-tools nav_icon"></i> <!-- Equipment -->
                     <span class="nav_name">Equipment</span>
                 </a>
-                <a href="#" class="nav_link">
+                <a href="Vehicle.html" class="nav_link">
                     <i class="bi bi-truck nav_icon"></i> <!-- Vehicles -->
                     <span class="nav_name">Vehicles</span>
                 </a>
-                <a href="#" class="nav_link">
+                <a href="Log.html" class="nav_link">
                     <i class="bi bi-bookmark nav_icon"></i>
                     <span class="nav_name">Logs</span>
                 </a>
@@ -112,16 +112,14 @@
                             <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>ROLE</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Designation</th>
-                                <th>Gender</th>
-                                <th>Joined Date</th>
-                                <th>DOB</th>
-                                <th>Address</th>
-                                <th>Contact Number</th>
-                                <th>Email</th>
+                                <th>Name</th>
+                                <th>Location</th>
+                                <th>Extent size</th>
+                                <th>Image One</th>
+                                <th>Image Two</th>
+                                <th>Log Id</th>
+
+
                                 <th>ACTIONS</th>
                             </tr>
                             </thead>
@@ -130,33 +128,29 @@
                             <tr class="tbody">
                                 <td>
                                     <div class="d-flex align-items-center">
-                                        <span>S001</span>
+                                        <span>F001</span>
                                     </div>
                                 </td>
+
                                 <td>
-                    <span class="user-role role-admin">
-                        <i class="bi bi-shield-check"></i> Administrator
-                    </span>
+                                    Green
+                                </td>
+                                <td >
+                                    Monaragala
                                 </td>
                                 <td>
-                                    Randika
-                                </td>
-                                <td class="social-icons">
-                                    Bandara
-                                </td>
-                                <td>
-                                    SCIENTISTS
+                                    100
+                                </td> <td>
+                                    image1.png
+                                </td> <td>
+                                    image2.png
                                 </td>
                                 <td>
                     <span class="rating rating-up">
-                       MALE
+                       L001
                     </span>
                                 </td>
-                                <td>20 Nov 2022</td>
-                                <td>25 Dec 1990</td>
-                                <td>123 Main St, City, Country</td>
-                                <td>+123456789</td>
-                                <td>jese@example.com</td>
+
                                 <td>
                                     <div class="action-btns">
                                         <button class="btn btn-link text-warning p-0 me-2">
@@ -168,47 +162,7 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr class="tbody">
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <span>S001</span>
-                                    </div>
-                                </td>
-                                <td>
-                    <span class="user-role role-viewer">
-                        <i class="bi bi-eye"></i> Viewer
-                    </span>
-                                </td>
-                                <td>
-                                    Randika
-                                </td>
-                                <td class="social-icons">
-                                    Bandara
-                                </td>
-                                <td>
-                                    SCIENTISTS
-                                </td>
-                                <td>
-                    <span class="rating rating-up">
-                       MALE
-                    </span>
-                                </td>
-                                <td>20 Nov 2022</td>
-                                <td>25 Dec 1990</td>
-                                <td>123 Main St, City, Country</td>
-                                <td>+123456789</td>
-                                <td>jese@example.com</td>
-                                <td>
-                                    <div class="action-btns">
-                                        <button class="btn btn-link text-warning p-0 me-2">
-                                            <i class="bi bi-pencil-fill"></i>
-                                        </button>
-                                        <button class="btn btn-link text-danger p-0">
-                                            <i class="bi bi-trash-fill"></i>
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
+
 
 
                             </tbody>
@@ -238,7 +192,7 @@
                     <span class="logo-icon">🌳</span>
                 </div>
                 <br>
-                <h1>Add Staff</h1>
+                <h1>Add Field</h1>
                 <button type="button" class="btn-close" style="color: red" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -246,46 +200,35 @@
 
                     <form>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" id="userCode" placeholder="Staff Code" required aria-label="StaffCode" disabled style="background-color: rgba(0,230,200,0.08); color: rgba(255,255,255,0.59);">
+                            <input type="text" class="form-control1" id="userCode" placeholder="ID" required aria-label="ID" disabled style="background-color: rgba(0,230,200,0.08); color: rgba(255,255,255,0.59);">
                         </div>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" placeholder="First Name" required aria-label="FirstName">
+                            <input type="text" class="form-control1" placeholder="Name" required aria-label="Name">
                         </div>
 
                         <div class="mb-1">
-                            <input type="text" class="form-control1" placeholder="Last Name" required aria-label="LastName">
+                            <input type="text" id="locationInput" class="form-control1" placeholder="Location" required aria-label="Location">
                         </div>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" placeholder="Designation" required aria-label="Designation">
+                            <input type="text" class="form-control1" placeholder="Extent Size" required aria-label="Extent Size">
                         </div>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" placeholder="Building Name" required aria-label="Building name">
+                            <label  class="form-label" style="color: rgba(0,230,200,0.56);">Select Image One</label>
+
+                            <input type="File" class="form-control1" placeholder="" required aria-label="">
                         </div>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" placeholder="Lane Name" required aria-label="Lane name">
+                            <label  class="form-label" style="color: rgba(0,230,200,0.56);">Select Image Two</label>
+
+                            <input type="File" class="form-control1" placeholder="" required aria-label="">
                         </div>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" placeholder="City" required aria-label="City">
-                        </div>
-                        <div class="mb-1">
-                            <input type="text" class="form-control1" placeholder="Postal Code" required aria-label="Postal Code">
+                            <input type="text" class="form-control1" placeholder="Select Log Id" required aria-label="Select Log Id">
                         </div>
 
 
-                        <div class="mb-1">
-                            <input type="text" class="form-control1" placeholder="Gender" required aria-label="Gender">
-                        </div>
-                        <div class="mb-1">
-                            <input type="email" class="form-control1" placeholder="Email" required aria-label="Email">
-                        </div>
 
-
-                        <div class="mb-1">
-                            <input type="text" class="form-control1" placeholder="Role" required aria-label="Role">
-                        </div>
-
-
-                        <button type="submit" class="btn1 btn-primary1 w-100 mb-3">ADD STAFF</button>
+                        <button type="submit" class="btn1 btn-primary1 w-100 mb-3">ADD FIELD</button>
 
                     </form>
                 </div>
@@ -321,6 +264,32 @@
         var paddedNumber = incremented.toString().padStart(3, '0');
         return "F" + paddedNumber;
     }
+
+</script>
+<script>
+    function initAutocomplete() {
+        // Get the input field by its ID
+        var input = document.getElementById('locationInput');
+
+        // Initialize the Google Places Autocomplete
+        var autocomplete = new google.maps.places.Autocomplete(input);
+
+        // Specify what kind of place data you want (optional)
+        autocomplete.setFields(['address_components', 'geometry', 'name']);
+
+        // Listen for when a user selects a location
+        autocomplete.addListener('place_changed', function () {
+            var place = autocomplete.getPlace();
+
+            // You can access selected place information here
+            console.log("Selected Location:", place.name);
+            console.log("Address Components:", place.address_components);
+            console.log("Coordinates:", place.geometry.location.lat(), place.geometry.location.lng());
+        });
+    }
+
+    // Initialize the autocomplete when the page loads
+    window.onload = initAutocomplete;
 </script>
 
 
