@@ -242,46 +242,61 @@
 
                 <form>
                     <div class="mb-1">
-                        <input type="text" class="form-control1" id="userCode" placeholder="Staff Code" required aria-label="StaffCode" disabled style="background-color: rgba(0,230,200,0.08); color: rgba(255,255,255,0.59);">
+                        <input type="text" class="form-control1" id="staffCode" placeholder="Staff Code" required aria-label="StaffCode"><!-- disabled style="background-color: rgba(0,230,200,0.08); color: rgba(255,255,255,0.59);">-->
                     </div>
                     <div class="mb-1">
-                        <input type="text" class="form-control1" placeholder="First Name" required aria-label="FirstName">
+                        <input type="text" class="form-control1" id="firstName" placeholder="First Name" required aria-label="FirstName">
                     </div>
 
                     <div class="mb-1">
-                        <input type="text" class="form-control1" placeholder="Last Name" required aria-label="LastName">
+                        <input type="text" class="form-control1" id="lastName" placeholder="Last Name" required aria-label="LastName">
                     </div>
                     <div class="mb-1">
-                        <input type="text" class="form-control1" placeholder="Designation" required aria-label="Designation">
+                        <input type="text" class="form-control1" id="designation" placeholder="Designation" required aria-label="Designation">
                     </div>
                     <div class="mb-1">
-                        <input type="text" class="form-control1" placeholder="Building Name" required aria-label="Building name">
+                        <input type="text" class="form-control1" id="joinedDate" placeholder="Joined Date" required aria-label="joinedDate">
                     </div>
                     <div class="mb-1">
-                        <input type="text" class="form-control1" placeholder="Lane Name" required aria-label="Lane name">
+                        <input type="text" class="form-control1" id="dob" placeholder="Date of Birth" required aria-label="dob">
                     </div>
                     <div class="mb-1">
-                        <input type="text" class="form-control1" placeholder="City" required aria-label="City">
+                        <input type="text" class="form-control1" id="buildingName" placeholder="Building Name" required aria-label="Building name">
                     </div>
                     <div class="mb-1">
-                        <input type="text" class="form-control1" placeholder="Postal Code" required aria-label="Postal Code">
+                        <input type="text" class="form-control1" id="laneName" placeholder="Lane Name" required aria-label="Lane name">
+                    </div>
+                    <div class="mb-1">
+                        <input type="text" class="form-control1" id="city" placeholder="City" required aria-label="City">
+                    </div>
+                    <div class="mb-1">
+                        <input type="text" class="form-control1" id="Province" placeholder="Province" required aria-label="Province">
+                    </div>
+                    <div class="mb-1">
+                        <input type="text" class="form-control1" id="postalCode" placeholder="Postal Code" required aria-label="Postal Code">
+                    </div>
+                    <div class="mb-1">
+                        <input type="text" class="form-control1" id="contact_No" placeholder="Contact Number" required aria-label="contact_No">
                     </div>
 
 
                     <div class="mb-1">
-                        <input type="text" class="form-control1" placeholder="Gender" required aria-label="Gender">
+                        <input type="text" class="form-control1" id="gender" placeholder="Gender" required aria-label="Gender">
                     </div>
                     <div class="mb-1">
-                        <input type="email" class="form-control1" placeholder="Email" required aria-label="Email">
+                        <input type="email" class="form-control1" id="email" placeholder="Email" required aria-label="Email">
                     </div>
 
 
                     <div class="mb-1">
-                        <input type="text" class="form-control1" placeholder="Role" required aria-label="Role">
+                        <input type="text" class="form-control1" id="role" placeholder="Role" required aria-label="Role">
+                    </div>
+                    <div class="mb-1">
+                        <input type="text" class="form-control1" id="logId" placeholder="LogId" required aria-label="LogId">
                     </div>
 
 
-                    <button type="submit" class="btn1 btn-primary1 w-100 mb-3">ADD STAFF</button>
+                    <button type="button" class="btn1 btn-primary1 w-100 mb-3" onclick="AddStaff()">ADD STAFF</button>
 
                 </form>
             </div>
@@ -297,7 +312,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="../javascript/sidebar.js"></script>
 <script>
-    $(document).ready(function() {
+   /* $(document).ready(function() {
         // Generate the next User Code dynamically
         var userCodeInput = $("#userCode");
         var currentCode = localStorage.getItem("lastStaffCode") || "S000"; // Set the starting user code to U000
@@ -316,8 +331,9 @@
         var incremented = numberPart + 1;
         var paddedNumber = incremented.toString().padStart(3, '0');
         return "S" + paddedNumber;
-    }
+    }*/
 </script>
+<script src="../javascript/Staff.js"></script>
 
 
 </body>
