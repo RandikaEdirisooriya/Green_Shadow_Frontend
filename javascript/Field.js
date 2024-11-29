@@ -1,7 +1,7 @@
 
 let latitude, longitude;
 $(document).ready(function() {
-    // Initialize the Leaflet map
+    getAllFields();
     let map = L.map('map').setView([7.8731, 80.7718], 7); // Initial location (Sri Lanka)
 
     // Add OpenStreetMap tiles
@@ -95,4 +95,24 @@ function clearForm() {
     $("#section").val('');
     $("#sectionId").val('');
 
+}
+function getAllFields() {
+    let token = localStorage.getItem("token");
+    let id="F001";
+
+    $.ajax({
+        method: "GET",
+        url: "http://localhost:8080/api/v1/field/"+id, // Make sure the URL is correct
+        headers: {
+            "Authorization": "Bearer " + token
+        },
+        success: function (data) {
+            console.log("Fields Data:", data);
+            // You can process the data here, e.g., render the fields on the UI
+        },
+        error: function (xhr, status, error) {
+            console.error("Error:", status, error); // Log detailed error info
+            alert("Error getting the Fields. Please try again.");
+        }
+    });
 }

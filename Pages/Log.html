@@ -2,12 +2,15 @@
 <html lang="en">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Crop</title>
+<title>Logs</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
 
 <link rel="stylesheet" href="../assets/Styles/navBarAndsidebar.css">
 <link rel="stylesheet" href="../assets/Styles/Crop.css">
+<link rel="stylesheet" href="../assets/Styles/Alert.css">
 
 <link rel="icon" type="image/png" href="../assets/Images/logo.png">
 </head>
@@ -110,7 +113,7 @@
                                 <th>Id</th>
                                 <th>Date</th>
                                 <th>Details</th>
-                                <th>Observed Image</th>
+                                <th style="padding-right: 70px"> Image</th>
                                 <th>Section</th>
                                 <th>Section Id</th>
 
@@ -120,35 +123,7 @@
                             </thead>
                             <tbody>
                             <!-- User Row 1 -->
-                            <tr class="tbody">
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <span>L001</span>
-                                    </div>
-                                </td>
 
-
-                                <td>2024-11-07</td>
-                                <td>
-                                    very Good
-                                </td>
-
-                                <td>image.png</td>
-
-                                <td>Crop</td>
-                                <td>C001</td>
-
-                                <td>
-                                    <div class="action-btns">
-                                        <button class="btn btn-link text-warning p-0 me-2">
-                                            <i class="bi bi-pencil-fill">  </i>
-                                        </button>
-                                        <button class="btn btn-link text-danger p-0">
-                                            <i class="bi bi-trash-fill">  </i>
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
 
 
 
@@ -187,7 +162,7 @@
 
                     <form>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" id="LogID" placeholder="ID" required aria-label="ID" disabled style="background-color: rgba(0,230,200,0.08); color: rgba(255,255,255,0.59);">
+                            <input type="text" class="form-control1" id="LogID" placeholder="ID" required aria-label="ID" >
                         </div>
                         <div class="mb-1">
                             <input type="text" class="form-control1" id="date" placeholder="Date" required aria-label="Date">
@@ -219,7 +194,58 @@
         </div>
     </div>
 </div>
+<div class="modal" id="exampleModalLong1"  aria-labelledby="exampleModalLongTitle1" >
+
+    <div class="modal-dialog " role="document">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="logo floating">
+                    <span class="logo-icon">🌳</span>
+                </div>
+                <br>
+                <h1>Update Log</h1>
+                <button type="button" class="btn-close" style="color: red" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="login-container1">
+
+                    <form>
+                        <div class="mb-1">
+                            <input type="text" class="form-control1" id="LogID1" placeholder="ID" required aria-label="ID" >
+                        </div>
+                        <div class="mb-1">
+                            <input type="text" class="form-control1" id="date1" placeholder="Date" required aria-label="Date">
+                        </div>
+
+                        <div class="mb-1">
+                            <input type="text" class="form-control1" id="details1" placeholder="Details" required aria-label="Details">
+                        </div>
+                        <div class="mb-1">
+                            <label  class="form-label" style="color: rgba(0,230,200,0.56);">Select Observed Image</label>
+                            <input type="File" class="form-control1" id="observedImage1" placeholder="Observed Image" required aria-label="Observed Image">
+                        </div>
+                        <div class="mb-1">
+                            <input type="text" class="form-control1" id="section1" placeholder="Select Section" required aria-label="Select Section">
+                        </div>
+                        <div class="mb-1">
+                            <input type="text" class="form-control1" id="sectionId1" placeholder="Section Id" required aria-label="Section Id">
+                        </div>
+
+
+
+
+                        <button type="button" class="btn11 btn-primary1 w-100 mb-3" onclick="UpdateLog()">UPDATE LOG</button>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="../javascript/sidebar.js"></script>
