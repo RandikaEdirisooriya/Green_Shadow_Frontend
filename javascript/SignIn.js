@@ -1,9 +1,8 @@
 function SignIn(){
     let email = $(`#email`).val();
     let password = $(`#password`).val();
-    console.log(email)
-    console.log(password)
-    //window.location.href = "Dashboard.html";
+
+
 
     $.ajax({
         method:"POST",
