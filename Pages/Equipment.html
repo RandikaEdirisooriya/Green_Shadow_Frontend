@@ -5,7 +5,7 @@
 <title>Equipment</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 <link rel="stylesheet" href="../assets/Styles/navBarAndsidebar.css">
 <link rel="stylesheet" href="../assets/Styles/Equipment.css">
 
@@ -119,36 +119,6 @@
                             </thead>
                             <tbody>
                             <!-- User Row 1 -->
-                            <tr class="tbody">
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <span>E001</span>
-                                    </div>
-                                </td>
-
-
-                                <td>ABC-1234</td>
-                                <td>
-                    <span class="user-role role-admin">
-                         Available
-                    </span>
-                                </td>
-
-                                <td>Drill</td>
-                                <td>F001</td>
-                                <td>S001</td>
-                                <td>
-                                    <div class="action-btns">
-                                        <button class="btn btn-link text-warning p-0 me-2">
-                                            <i class="bi bi-pencil-fill">  </i>
-                                        </button>
-                                        <button class="btn btn-link text-danger p-0">
-                                            <i class="bi bi-trash-fill">  </i>
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-
 
 
                             </tbody>
@@ -186,28 +156,78 @@
 
                     <form>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" id="userCode" placeholder="ID" required aria-label="ID" disabled style="background-color: rgba(0,230,200,0.08); color: rgba(255,255,255,0.59);">
+                            <input type="text" class="form-control1" id="EquipmentId" placeholder="ID" required aria-label="ID" >
                         </div>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" placeholder="Name" required aria-label="Name">
+                            <input type="text" class="form-control1"  id="name" placeholder="Name" required aria-label="Name">
                         </div>
 
                         <div class="mb-1">
-                            <input type="text" class="form-control1" placeholder="Status" required aria-label="Status">
+                            <input type="text" class="form-control1" id="status" placeholder="Status" required aria-label="Status">
                         </div>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" placeholder="Type" required aria-label="Type">
+                            <input type="text" class="form-control1"  id="type" placeholder="Type" required aria-label="Type">
+                        </div>
+
+                        <div class="mb-1">
+                            <input type="text" class="form-control1" id="field" placeholder="Select Field" required aria-label="Select Field">
                         </div>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" placeholder="Select Field" required aria-label="Select Field">
-                        </div>
-                        <div class="mb-1">
-                            <input type="text" class="form-control1" placeholder="Select Staff" required aria-label="Select Staff">
+                            <input type="text" class="form-control1" id ="staff" placeholder="Select Staff" required aria-label="Select Staff">
                         </div>
 
 
 
-                        <button type="submit" class="btn1 btn-primary1 w-100 mb-3">ADD EQUIPMENT</button>
+                        <button type="button" class="btn1 btn-primary1 w-100 mb-3" onclick="addEquipment()">ADD EQUIPMENT</button>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="modal" id="exampleModalLong1"  aria-labelledby="exampleModalLongTitle" >
+
+    <div class="modal-dialog " role="document">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="logo floating">
+                    <span class="logo-icon">🌳</span>
+                </div>
+                <br>
+                <h1>Update Equipment</h1>
+                <button type="button" class="btn-close" style="color: red" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="login-container1">
+
+                    <form>
+                        <div class="mb-1">
+                            <input type="text" class="form-control1" id="EquipmentId1" placeholder="ID" required aria-label="ID" >
+                        </div>
+                        <div class="mb-1">
+                            <input type="text" class="form-control1"  id="name1" placeholder="Name" required aria-label="Name">
+                        </div>
+
+                        <div class="mb-1">
+                            <input type="text" class="form-control1" id="status1" placeholder="Status" required aria-label="Status">
+                        </div>
+                        <div class="mb-1">
+                            <input type="text" class="form-control1"  id="type1" placeholder="Type" required aria-label="Type">
+                        </div>
+
+                        <div class="mb-1">
+                            <input type="text" class="form-control1" id="field1" placeholder="Select Field" required aria-label="Select Field">
+                        </div>
+                        <div class="mb-1">
+                            <input type="text" class="form-control1" id ="staff1" placeholder="Select Staff" required aria-label="Select Staff">
+                        </div>
+
+
+
+                        <button type="button" class="btn1 btn-primary1 w-100 mb-3" onclick="updateEquipment()">Update EQUIPMENT</button>
 
                     </form>
                 </div>
@@ -217,9 +237,10 @@
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="../javascript/sidebar.js"></script>
+<script src="../javascript/Equipment.js"></script>
 
 </body>
 </html>
