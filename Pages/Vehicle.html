@@ -6,6 +6,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
 <link rel="stylesheet" href="../assets/Styles/navBarAndsidebar.css">
 <link rel="stylesheet" href="../assets/Styles/Vehicle.css">
@@ -196,25 +197,76 @@
 
                     <form>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" id="userCode" placeholder="ID" required aria-label="ID" disabled style="background-color: rgba(0,230,200,0.08); color: rgba(255,255,255,0.59);">
+                            <input type="text" class="form-control1" id="vehicleId" placeholder="ID" required aria-label="ID">
                         </div>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" placeholder="Plate Number" required aria-label="Plate Number">
+                            <input type="text" class="form-control1"  id="plateNumber" placeholder="Plate Number" required aria-label="Plate Number">
                         </div>
 
                         <div class="mb-1"><!--h-->
-                            <input type="text" class="form-control1" placeholder="Category" required aria-label="category">
+                            <input type="text" class="form-control1" id="category" placeholder="Category" required aria-label="category">
                         </div>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" placeholder="Status" required aria-label="Status">
+                            <input type="text" class="form-control1" id="status" placeholder="Status" required aria-label="Status">
                         </div>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" placeholder="Select Staff" required aria-label="Select Staff">
+                            <input type="text" class="form-control1" id="fuelType" placeholder="Fuel Type" required aria-label="Fuel Type">
+                        </div>
+                        <div class="mb-1">
+                            <input type="text" class="form-control1" id="staff" placeholder="Select Staff" required aria-label="Select Staff">
                         </div>
 
 
 
-                        <button type="submit" class="btn1 btn-primary1 w-100 mb-3">ADD VEHICLE</button>
+                        <button type="button" class="btn1 btn-primary1 w-100 mb-3" onclick="AddVehicle()">ADD VEHICLE</button>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="modal" id="exampleModalLong1"  aria-labelledby="exampleModalLongTitle" >
+
+    <div class="modal-dialog " role="document">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="logo floating">
+                    <span class="logo-icon">🌳</span>
+                </div>
+                <br>
+                <h1>Update Vehicle</h1>
+                <button type="button" class="btn-close" style="color: red" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="login-container1">
+
+                    <form>
+                        <div class="mb-1">
+                            <input type="text" class="form-control1" id="vehicleId1" placeholder="ID" required aria-label="ID">
+                        </div>
+                        <div class="mb-1">
+                            <input type="text" class="form-control1"  id="plateNumber1" placeholder="Plate Number" required aria-label="Plate Number">
+                        </div>
+
+                        <div class="mb-1"><!--h-->
+                            <input type="text" class="form-control1" id="category1" placeholder="Category" required aria-label="category">
+                        </div>
+                        <div class="mb-1">
+                            <input type="text" class="form-control1" id="status1" placeholder="Status" required aria-label="Status">
+                        </div>
+                        <div class="mb-1">
+                            <input type="text" class="form-control1" id="fuelType1" placeholder="Fuel Type" required aria-label="Fuel Type">
+                        </div>
+                        <div class="mb-1">
+                            <input type="text" class="form-control1" id="staff1" placeholder="Select Staff" required aria-label="Select Staff">
+                        </div>
+
+
+
+                        <button type="button" class="btn1 btn-primary1 w-100 mb-3" onclick="UpdateVehicle()">UPDATE VEHICLE</button>
 
                     </form>
                 </div>
@@ -228,28 +280,10 @@
 <div class="overlay"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="../javascript/sidebar.js"></script>
-<script>
-    $(document).ready(function() {
-        // Generate the next User Code dynamically
-        var userCodeInput = $("#userCode");
-        var currentCode = localStorage.getItem("lastVehicleCode") || "V000"; // Set the starting user code to U000
+<script src="../javascript/Vehicle.js">
 
-        // Increment and set the next user code
-        currentCode = incrementUserCode(currentCode);
-        userCodeInput.val(currentCode);
-
-        // Store the last used code
-        localStorage.setItem("lastVehicleCode", currentCode);
-    });
-
-    // Function to increment the user code
-    function incrementUserCode(code) {
-        var numberPart = parseInt(code.substring(1));
-        var incremented = numberPart + 1;
-        var paddedNumber = incremented.toString().padStart(3, '0');
-        return "V" + paddedNumber;
-    }
 </script>
 
 
