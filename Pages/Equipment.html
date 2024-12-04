@@ -160,7 +160,7 @@
 
                     <form>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" id="EquipmentId" placeholder="ID" required aria-label="ID" >
+                            <input type="text" class="form-control1" id="EquipmentId" placeholder="ID" required aria-label="ID" disabled style="background-color: rgba(0,230,200,0.08); color: rgba(255,255,255,0.59);" >
                         </div>
                         <div class="mb-1">
                             <input type="text" class="form-control1"  id="name" placeholder="Name" required aria-label="Name">
@@ -174,10 +174,17 @@
                         </div>
 
                         <div class="mb-1">
-                            <input type="text" class="form-control1" id="field" placeholder="Select Field" required aria-label="Select Field">
+                            <select class="form-select mb-3" id="field" required aria-label="FieldId">
+                                <option value="">Select Field ID</option>
+                                <!-- Populate options dynamically -->
+                            </select>
                         </div>
+
                         <div class="mb-1">
-                            <input type="text" class="form-control1" id ="staff" placeholder="Select Staff" required aria-label="Select Staff">
+                            <select class="form-select mb-3" id="staff" required aria-label="StaffID">
+                                <option value="">Select Staff ID</option>
+                                <!-- Populate options dynamically -->
+                            </select>
                         </div>
 
 
@@ -223,11 +230,19 @@
                         </div>
 
                         <div class="mb-1">
-                            <input type="text" class="form-control1" id="field1" placeholder="Select Field" required aria-label="Select Field">
-                        </div>
-                        <div class="mb-1">
-                            <input type="text" class="form-control1" id ="staff1" placeholder="Select Staff" required aria-label="Select Staff">
-                        </div>
+                            <div class="mb-1">
+                                <select class="form-select mb-3" id="field1" required aria-label="FieldId">
+                                    <option value="">Select Field ID</option>
+                                    <!-- Populate options dynamically -->
+                                </select>
+                            </div>
+
+                            <div class="mb-1">
+                                <select class="form-select mb-3" id="staff1" required aria-label="StaffID">
+                                    <option value="">Select Staff ID</option>
+                                    <!-- Populate options dynamically -->
+                                </select>
+                            </div>
 
 
 

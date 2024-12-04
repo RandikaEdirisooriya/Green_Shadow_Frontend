@@ -1,5 +1,7 @@
 $(document).ready(function () {
     getAllVehicles();
+    getNextID()
+    getStaffIds()
 });
 
 function AddVehicle() {
@@ -28,6 +30,7 @@ function AddVehicle() {
             "staffId": staff
         }),
         success: function (response) {
+            getNextID();
             clearForm();
             getAllVehicles(); // Refresh the table after adding
             Swal.fire({
@@ -217,4 +220,52 @@ function deleteVehicle(vehicleId) {
             });
         }
     });
+}
+function getNextID(){
+    let token = localStorage.getItem("token");
+    $.ajax({
+        method: "GET",
+        url: "http://localhost:8080/api/v1/vehicle/nextcode",
+        headers: {
+            "Authorization": "Bearer " + token
+        },
+
+        success: function (data) {
+            console.log(data.data)
+            $(`#vehicleId`).val(data.data);
+
+        },
+        error: function () {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error!',
+                text: 'Error get the ID.',
+                background: 'rgba(65,65,66,0.18)',
+                showConfirmButton: true
+            });
+        }
+    });
+}
+function getStaffIds(){
+let token = localStorage.getItem("token");
+$.ajax({
+    method: "GET",
+    url: "http://localhost:8080/api/v1/staff/ids",
+    headers: {
+        "Authorization": "Bearer " + token
+    },
+    success: function (data) {
+        $("#staff").empty().append(`<option value="">Select Staff</option>`);
+        // Empty and populate #FieldId1
+        $("#staff1").empty().append(`<option value="">Select Staff</option>`);
+
+        data.forEach(function (id) {
+            $("#staff").append(`<option value="${id}">${id}</option>`);
+            $("#staff1").append(`<option value="${id}">${id}</option>`);
+        });
+    },
+    error: function () {
+        alert("Error fetching staff IDs.");
+    }
+});
 }

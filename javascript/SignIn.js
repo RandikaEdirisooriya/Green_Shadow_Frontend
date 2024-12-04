@@ -23,11 +23,25 @@ function SignIn(){
 
             localStorage.setItem("token",data.token);
             window.location.href = "Dashboard.html";
-            alert("saved")
+            Swal.fire({
+                icon: 'success',
+                title: 'Logged In!',
+                text: 'Logged in successfully.',
+                background: 'rgba(65,65,66,0.18)',
+                showConfirmButton: false,
+                timer: 2000
+            });
 
         },
         error:function (){
-            alert("Error")
+            Swal.fire({
+                icon: 'error',
+                title: 'Error!',
+                text: `Error Logging In: ${xhr.responseText || error}`,
+                background: 'rgba(65,65,66,0.18)',
+                showConfirmButton: true
+            });
+
         }
 
     });

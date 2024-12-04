@@ -1,5 +1,7 @@
 $(document).ready(function() {
     getAllStaff();
+    getNextID()
+    getLogIds()
 });
 
 function AddStaff(){
@@ -51,6 +53,7 @@ function AddStaff(){
         success: function (data) {
             clearForm();
             getAllStaff();
+            getNextID();
 
             Swal.fire({
                 icon: 'success',
@@ -275,6 +278,55 @@ function UpdateStaff(){
         },
         error: function () {
             alert("Error");
+        }
+    });
+}
+function getNextID(){
+    let token = localStorage.getItem("token");
+    $.ajax({
+        method: "GET",
+        url: "http://localhost:8080/api/v1/staff/nextcode",
+        headers: {
+            "Authorization": "Bearer " + token
+        },
+
+        success: function (data) {
+            console.log(data.data)
+            $(`#staffCode`).val(data.data);
+
+        },
+        error: function () {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error!',
+                text: 'Error get the ID.',
+                background: 'rgba(65,65,66,0.18)',
+                showConfirmButton: true
+            });
+        }
+    });
+}
+function getLogIds() {
+    let token = localStorage.getItem("token");
+    $.ajax({
+        method: "GET",
+        url: "http://localhost:8080/api/v1/logs/ids",
+        headers: {
+            "Authorization": "Bearer " + token
+        },
+        success: function (data) {
+            // Empty and populate #FieldId
+            $("#logId").empty().append(`<option value="">Select Logs</option>`);
+            // Empty and populate #FieldId1
+            $("#logId1").empty().append(`<option value="">Select Logs</option>`);
+
+            data.forEach(function (id) {
+                $("#logId").append(`<option value="${id}">${id}</option>`);
+                $("#logId1").append(`<option value="${id}">${id}</option>`);
+            });
+        },
+        error: function () {
+            alert("Error fetching IDs.");
         }
     });
 }

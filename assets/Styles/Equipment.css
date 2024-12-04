@@ -295,3 +295,30 @@ h1 {
 .floating {
     animation: float 6s ease-in-out infinite;
 }
+.form-select{
+    background: rgba(0, 230, 200, 0.07);
+    border: none;
+    width: 100%;
+    color: rgba(0, 230, 200, 0.76);
+    padding: 0.4rem 0.8rem; /* Slightly increased padding */
+    margin-bottom: 0.6rem; /* Slightly increased margin */
+    transition: all 0.3s ease;
+    font-size: 0.85rem; /* Slightly increased font size */
+    border-radius: 10px;
+    outline: none; /* Remove outline on focus */
+}
+
+.form-select:focus {
+    box-shadow: 0 0 5px rgba(0, 230, 200, 0.5); /* Add focus effect */
+}
+.form-select option {
+    background-color: rgba(14, 89, 79, 0.28); /* Change dropdown background */
+    color: #110c0f; /* Change text color */
+}
+
+/* Change the hover and selected option color */
+.form-select option:checked,
+.form-select option:hover {
+    background-color: rgba(0, 180, 160, 0.9); /* Darker hover effect */
+    color: #325ee8;
+}

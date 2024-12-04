@@ -190,10 +190,16 @@
                             <input type="text" class="form-control1" id="season1" placeholder="Season" required aria-label="Season">
                         </div>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" id="field1" placeholder="Select Field" required aria-label="Select Field">
+                            <select class="form-select mb-3" id="field1" required aria-label="FieldId">
+                                <option value="">Select Field ID</option>
+                                <!-- Populate options dynamically -->
+                            </select>
                         </div>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" id="log1" placeholder="Select Log" required aria-label="Select log">
+                            <select class="form-select mb-3" id="log1" required aria-label="logId">
+                                <option value="">Select Log ID</option>
+                                <!-- Populate options dynamically -->
+                            </select>
                         </div>
 
 
@@ -225,7 +231,7 @@
 
                     <form>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" id="cropId" placeholder="ID" required aria-label="ID"><!-- disabled style="background-color: rgba(0,230,200,0.08); color: rgba(255,255,255,0.59);">-->
+                            <input type="text" class="form-control1" id="cropId" placeholder="ID" required aria-label="ID" disabled style="background-color: rgba(0,230,200,0.08); color: rgba(255,255,255,0.59);">
                         </div>
                         <div class="mb-1">
                             <input type="text" class="form-control1" id="category" placeholder="Category" required aria-label="Category">
@@ -242,16 +248,32 @@
 
                             <input type="File" class="form-control1" id="image" placeholder="Select Image" required aria-label="Select Image">
                         </div>
+
                         <div class="mb-1">
-                            <input type="text" class="form-control1" id="season" placeholder="Season" required aria-label="Season">
-                        </div>
-                        <div class="mb-1">
-                            <input type="text" class="form-control1" id="field" placeholder="Select Field" required aria-label="Select Field">
-                        </div>
-                        <div class="mb-1">
-                            <input type="text" class="form-control1" id="log" placeholder="Select Log" required aria-label="Select log">
+                            <select class="form-select mb-3" id="season" required aria-label="season">
+                                <option value="">Select Season</option>
+                                <option value="Spring">Spring</option>
+                                <option value="Summer">Summer</option>
+                                <option value="Monsoon">Monsoon</option>
+                                <option value="Autumn">Autumn</option>
+                                <option value="Winter">Winter</option>
+                                <option value="Harvest">Harvest</option>
+                            </select>
                         </div>
 
+                        <div class="mb-1">
+                            <select class="form-select mb-3" id="field" required aria-label="FieldId">
+                                <option value="">Select Field ID</option>
+                                <!-- Populate options dynamically -->
+                            </select>
+                        </div>
+
+                        <div class="mb-1">
+                            <select class="form-select mb-3" id="log" required aria-label="logId">
+                                <option value="">Select Log ID</option>
+                                <!-- Populate options dynamically -->
+                            </select>
+                        </div>
 
 
                         <button type="button" class="btn1 btn-primary1 w-100 mb-3" onclick="addCrop()">ADD CROP</button>

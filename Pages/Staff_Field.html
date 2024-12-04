@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="../assets/Styles/navBarAndsidebar.css">
 <link rel="stylesheet" href="../assets/Styles/Staff_field.css">
 
+
 <link rel="icon" type="image/png" href="../assets/Images/logo.png">
 </head>
 <body>
@@ -153,11 +154,19 @@
             <div class="modal-body">
                 <div class="login-container1">
                     <form>
+
                         <div class="mb-1">
-                            <input type="text" class="form-control1" id="FieldId" placeholder="FieldId" required aria-label="ID">
+                            <select class="form-select mb-3" id="FieldId" required aria-label="FieldId">
+                                <option value="">Select Field ID</option>
+                                <!-- Populate options dynamically -->
+                            </select>
                         </div>
+
                         <div class="mb-1">
-                            <input type="text" class="form-control1" id="StaffID" placeholder="StaffID" required aria-label="Name">
+                            <select class="form-select mb-3" id="StaffID" required aria-label="StaffID">
+                                <option value="">Select Staff ID</option>
+                                <!-- Populate options dynamically -->
+                            </select>
                         </div>
                         <!-- Map container -->
 

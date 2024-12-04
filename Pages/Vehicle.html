@@ -35,6 +35,7 @@
 </header>
 <div class="l-navbar" id="nav-bar">
     <nav class="nav">
+
         <div class="nav_list">
             <a href="Dashboard.html" class="nav_link">
                 <i class="bi bi-house-door nav_icon"></i> <!-- Home -->
@@ -196,7 +197,7 @@
 
                     <form>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" id="vehicleId" placeholder="ID" required aria-label="ID">
+                            <input type="text" class="form-control1" id="vehicleId" placeholder="ID" required aria-label="ID" disabled style="background-color: rgba(0,230,200,0.08); color: rgba(255,255,255,0.59);" >
                         </div>
                         <div class="mb-1">
                             <input type="text" class="form-control1"  id="plateNumber" placeholder="Plate Number" required aria-label="Plate Number">
@@ -208,11 +209,20 @@
                         <div class="mb-1">
                             <input type="text" class="form-control1" id="status" placeholder="Status" required aria-label="Status">
                         </div>
+
                         <div class="mb-1">
-                            <input type="text" class="form-control1" id="fuelType" placeholder="Fuel Type" required aria-label="Fuel Type">
+                            <select class="form-select mb-3" id="fuelType" required aria-label="fuelType">
+                                <option value="">Select Fuel Type </option>
+                                <option value="Petrol">Petrol </option>
+                                <option value="Diesel">Diesel </option>
+
+                            </select>
                         </div>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" id="staff" placeholder="Select Staff" required aria-label="Select Staff">
+                            <select class="form-select mb-3" id="staff" required aria-label="StaffID">
+                                <option value="">Select Staff ID</option>
+                                <!-- Populate options dynamically -->
+                            </select>
                         </div>
 
 
@@ -257,10 +267,18 @@
                             <input type="text" class="form-control1" id="status1" placeholder="Status" required aria-label="Status">
                         </div>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" id="fuelType1" placeholder="Fuel Type" required aria-label="Fuel Type">
+                            <select class="form-select mb-3" id="fuelType1" required aria-label="fuelType">
+                                <option value="">Select Fuel Type </option>
+                                <option value="Petrol">Petrol </option>
+                                <option value="Diesel">Diesel </option>
+
+                            </select>
                         </div>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" id="staff1" placeholder="Select Staff" required aria-label="Select Staff">
+                            <select class="form-select mb-3" id="staff1" required aria-label="StaffID">
+                                <option value="">Select Staff ID</option>
+
+                            </select>
                         </div>
 
 

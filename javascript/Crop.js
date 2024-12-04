@@ -1,9 +1,14 @@
 $(document).ready(function() {
     getAllCrops(); // Load all crops on page load
+    getNextID()
+    getLogIds()
+    getFieldIds()
 });
 
 // Function to add a new crop
 function addCrop() {
+    let token = localStorage.getItem("token");
+
     let CropId = $(`#cropId`).val();
     let category = $(`#category`).val();
     let commonName = $(`#commonName`).val();
@@ -23,7 +28,7 @@ function addCrop() {
     formData.append("fieldCode", field);
     formData.append("logCode", log);
 
-    let token = localStorage.getItem("token");
+
 
     $.ajax({
         method: "POST",
@@ -35,6 +40,7 @@ function addCrop() {
         processData: false,
         data: formData,
         success: function (data) {
+            getNextID();
             Swal.fire({
                 icon: 'success',
                 title: 'Crop Added!',
@@ -257,6 +263,79 @@ function UpdateCrop() {
                 background: 'rgba(65,65,66,0.18)',
                 showConfirmButton: true
             });
+        }
+    });
+}
+function getNextID(){
+    let token = localStorage.getItem("token");
+    $.ajax({
+        method: "GET",
+        url: "http://localhost:8080/api/v1/crop/nextcode",
+        headers: {
+            "Authorization": "Bearer " + token
+        },
+
+        success: function (data) {
+            console.log(data.data)
+            $(`#cropId`).val(data.data);
+
+        },
+        error: function () {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error!',
+                text: 'Error get the CropID.',
+                background: 'rgba(65,65,66,0.18)',
+                showConfirmButton: true
+            });
+        }
+    });
+}
+function getFieldIds() {
+    let token = localStorage.getItem("token");
+    $.ajax({
+        method: "GET",
+        url: "http://localhost:8080/api/v1/field/ids",
+        headers: {
+            "Authorization": "Bearer " + token
+        },
+        success: function (data) {
+            // Empty and populate #FieldId
+            $("#field").empty().append(`<option value="">Select Field</option>`);
+            // Empty and populate #FieldId1
+            $("#field1").empty().append(`<option value="">Select Field</option>`);
+
+            data.forEach(function (id) {
+                $("#field").append(`<option value="${id}">${id}</option>`);
+                $("#field1").append(`<option value="${id}">${id}</option>`);
+            });
+        },
+        error: function () {
+            alert("Error fetching IDs.");
+        }
+    });
+}
+function getLogIds() {
+    let token = localStorage.getItem("token");
+    $.ajax({
+        method: "GET",
+        url: "http://localhost:8080/api/v1/logs/ids",
+        headers: {
+            "Authorization": "Bearer " + token
+        },
+        success: function (data) {
+            // Empty and populate #FieldId
+            $("#log").empty().append(`<option value="">Select Logs</option>`);
+            // Empty and populate #FieldId1
+            $("#log1").empty().append(`<option value="">Select Logs</option>`);
+
+            data.forEach(function (id) {
+                $("#log").append(`<option value="${id}">${id}</option>`);
+                $("#log1").append(`<option value="${id}">${id}</option>`);
+            });
+        },
+        error: function () {
+            alert("Error fetching IDs.");
         }
     });
 }

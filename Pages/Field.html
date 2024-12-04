@@ -144,7 +144,7 @@
                 <div class="login-container1">
                     <form>
                         <div class="mb-1">
-                            <input type="text" class="form-control1" id="FieldId" placeholder="ID" required aria-label="ID">
+                            <input type="text" class="form-control1" id="FieldId" placeholder="ID" required aria-label="ID " disabled style="background-color: rgba(0,230,200,0.08); color: rgba(255,255,255,0.59);">
                         </div>
                         <div class="mb-1">
                             <input type="text" class="form-control1" id="name" placeholder="Name" required aria-label="Name">
@@ -166,12 +166,14 @@
                             <label class="form-label" style="color: rgba(0,230,200,0.56);">Select Image Two</label>
                             <input type="file" class="form-control1" id="image2" required aria-label="">
                         </div>
+
                         <div class="mb-1">
-                            <input type="text" class="form-control1" id="StaffId" placeholder="Select Staff Id" required aria-label="Select Staff Id">
+                            <select class="form-select mb-3" id="logId" required aria-label="logId">
+                                <option value="">Select Log ID</option>
+                                <!-- Populate options dynamically -->
+                            </select>
                         </div>
-                        <div class="mb-1">
-                            <input type="text" class="form-control1" id="logId" placeholder="Select Log Id" required aria-label="Select Log Id">
-                        </div>
+
                         <button type="button" class="btn1 btn-primary1 w-100 mb-3" onclick="addField()">ADD FIELD</button>
                     </form>
                 </div>
@@ -215,11 +217,12 @@
                             <label class="form-label" style="color: rgba(0,230,200,0.56);">Select Image Two</label>
                             <input type="file" class="form-control1" id="image21" required aria-label="">
                         </div>
+
                         <div class="mb-1">
-                            <input type="text" class="form-control1" id="StaffId1" placeholder="Select Staff Id" required aria-label="Select Staff Id">
-                        </div>
-                        <div class="mb-1">
-                            <input type="text" class="form-control1" id="logId1" placeholder="Select Log Id" required aria-label="Select Log Id">
+                            <select class="form-select mb-3" id="logId1" required aria-label="logId">
+                                <option value="">Select Log ID</option>
+                                <!-- Populate options dynamically -->
+                            </select>
                         </div>
                         <button type="button" class="btn1 btn-primary1 w-100 mb-3" onclick="UpdateField()">UPDATE FIELD</button>
                     </form>

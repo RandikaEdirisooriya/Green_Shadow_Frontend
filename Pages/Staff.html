@@ -175,7 +175,7 @@
 
                 <form>
                     <div class="mb-1">
-                        <input type="text" class="form-control1" id="staffCode" placeholder="Staff Code" required aria-label="StaffCode"><!-- disabled style="background-color: rgba(0,230,200,0.08); color: rgba(255,255,255,0.59);">-->
+                        <input type="text" class="form-control1" id="staffCode" placeholder="Staff Code" required aria-label="StaffCode" disabled style="background-color: rgba(0,230,200,0.08); color: rgba(255,255,255,0.59);" ><!-- disabled style="background-color: rgba(0,230,200,0.08); color: rgba(255,255,255,0.59);">-->
                     </div>
                     <div class="mb-1">
                         <input type="text" class="form-control1" id="firstName" placeholder="First Name" required aria-label="FirstName">
@@ -185,7 +185,13 @@
                         <input type="text" class="form-control1" id="lastName" placeholder="Last Name" required aria-label="LastName">
                     </div>
                     <div class="mb-1">
-                        <input type="text" class="form-control1" id="designation" placeholder="Designation" required aria-label="Designation">
+                        <select class="form-select mb-3" id="designation" required aria-label="Designation">
+                            <option value="">Select Designation</option>
+                            <option value="MANAGER">MANAGER</option>
+                            <option value="SCIENTIST">SCIENTIST</option>
+                            <option value="OTHER">OTHER</option>
+
+                        </select>
                     </div>
                     <div class="mb-1">
                         <input type="text" class="form-control1" id="joinedDate" placeholder="Joined Date" required aria-label="joinedDate">
@@ -213,8 +219,15 @@
                     </div>
 
 
+
                     <div class="mb-1">
-                        <input type="text" class="form-control1" id="gender" placeholder="Gender" required aria-label="Gender">
+                        <select class="form-select mb-3" id="gender" required aria-label="Gender">
+                            <option value="">Select Gender </option>
+                            <option value="MALE">MALE </option>
+                            <option value="FEMALE">FEMALE </option>
+
+
+                        </select>
                     </div>
                     <div class="mb-1">
                         <input type="email" class="form-control1" id="email" placeholder="Email" required aria-label="Email">
@@ -222,10 +235,19 @@
 
 
                     <div class="mb-1">
-                        <input type="text" class="form-control1" id="role" placeholder="Role" required aria-label="Role">
+                        <select class="form-select mb-3" id="role" required aria-label="Role">
+                            <option value="">Select Role</option>
+                            <option value="MANAGER">MANAGER</option>
+                            <option value="SCIENTIST">SCIENTIST</option>
+                            <option value="OTHER">OTHER</option>
+                        </select>
                     </div>
+
                     <div class="mb-1">
-                        <input type="text" class="form-control1" id="logId" placeholder="LogId" required aria-label="LogId">
+                        <select class="form-select mb-3" id="logId" required aria-label="logId">
+                            <option value="">Select Log ID</option>
+                            <!-- Populate options dynamically -->
+                        </select>
                     </div>
 
 
@@ -265,9 +287,16 @@
                     <div class="mb-1">
                         <input type="text" class="form-control1" id="lastName1" placeholder="Last Name" required aria-label="LastName">
                     </div>
+
                     <div class="mb-1">
-                        <input type="text" class="form-control1" id="designation1" placeholder="Designation" required aria-label="Designation">
+                        <select class="form-select mb-3" id="designation1" required aria-label="Designation">
+                            <option value="">Select Designation</option>
+                            <option value="MANAGER">MANAGER</option>
+                            <option value="SCIENTIST">SCIENTIST</option>
+                            <option value="OTHER">OTHER</option>
+                        </select>
                     </div>
+
                     <div class="mb-1">
                         <input type="text" class="form-control1" id="joinedDate1" placeholder="Joined Date" required aria-label="joinedDate">
                     </div>
@@ -295,18 +324,31 @@
 
 
                     <div class="mb-1">
-                        <input type="text" class="form-control1" id="gender1" placeholder="Gender" required aria-label="Gender">
+                        <select class="form-select mb-3" id="gender1" required aria-label="Gender">
+                            <option value="">Select Gender</option>
+                            <option value="MALE">MALE</option>
+                            <option value="FEMALE">FEMALE</option>
+                        </select>
                     </div>
                     <div class="mb-1">
                         <input type="email" class="form-control1" id="email1" placeholder="Email" required aria-label="Email">
                     </div>
 
 
+
                     <div class="mb-1">
-                        <input type="text" class="form-control1" id="role1" placeholder="Role" required aria-label="Role">
+                        <select class="form-select mb-3" id="role1" required aria-label="Role">
+                            <option value="">Select Role</option>
+                            <option value="MANAGER">MANAGER</option>
+                            <option value="SCIENTIST">SCIENTIST</option>
+                            <option value="OTHER">OTHER</option>
+                        </select>
                     </div>
                     <div class="mb-1">
-                        <input type="text" class="form-control1" id="logId1" placeholder="LogId" required aria-label="LogId">
+                        <select class="form-select mb-3" id="logId1" required aria-label="logId">
+                            <option value="">Select Log ID</option>
+                            <!-- Populate options dynamically -->
+                        </select>
                     </div>
 
 

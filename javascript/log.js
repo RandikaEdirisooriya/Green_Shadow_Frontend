@@ -1,5 +1,6 @@
 $(document).ready(function() {
     getAllLogs();
+    getNextID()
 });
 
 function addLog() {
@@ -27,6 +28,7 @@ function addLog() {
         processData: false,
         data: formData,
         success: function (data) {
+            getNextID();
             Swal.fire({
                 icon: 'success',
                 title: 'Log Added!',
@@ -229,6 +231,31 @@ function UpdateLog(logId) {
                 icon: 'error',
                 title: 'Error!',
                 text: 'Error updating the log. Please try again.',
+                background: 'rgba(65,65,66,0.18)',
+                showConfirmButton: true
+            });
+        }
+    });
+}
+function getNextID(){
+    let token = localStorage.getItem("token");
+    $.ajax({
+        method: "GET",
+        url: "http://localhost:8080/api/v1/logs/nextcode",
+        headers: {
+            "Authorization": "Bearer " + token
+        },
+
+        success: function (data) {
+            console.log(data.data)
+            $(`#LogID`).val(data.data);
+
+        },
+        error: function () {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error!',
+                text: 'Error get the ID.',
                 background: 'rgba(65,65,66,0.18)',
                 showConfirmButton: true
             });

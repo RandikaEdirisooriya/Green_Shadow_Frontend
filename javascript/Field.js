@@ -3,6 +3,8 @@ let updatedlatitude, updatedlongitude;
 
 $(document).ready(function () {
     getAllFields();
+    getNextID();
+    getLogIds()
 
     // Initialize map with initial view (Sri Lanka)
     let map = L.map('map').setView([7.8731, 80.7718], 7);
@@ -43,7 +45,7 @@ function addField() {
 
     let FieldId = $(`#FieldId`).val();
     let name = $(`#name`).val();
-    let StaffId = $(`#StaffId`).val();
+
     let ExtentSize = $(`#ExtentSize`).val();
     let logId = $(`#logId`).val();
     let image1 = $(`#image1`)[0].files[0];
@@ -72,10 +74,19 @@ function addField() {
         processData: false,
         data: formData,
         success: function (data) {
-            console.log(data);
-            alert("Field saved successfully!");
+            getNextID();
+
             clearForm();
-            getAllFields(); // Refresh the table
+            getAllFields();
+            Swal.fire({
+                icon: 'success',
+                title: 'Field !',
+                text: 'Field added  successfully.',
+                background: 'rgba(65,65,66,0.18)',
+                showConfirmButton: false,
+                timer: 2000
+            });
+
         },
         error: function () {
             alert("Error saving the Field.");
@@ -87,7 +98,7 @@ function addField() {
 function clearForm() {
     $("#FieldId").val("");
     $("#name").val("");
-    $("#StaffId").val("");
+
     $("#ExtentSize").val("");
     $("#logId").val("");
     $("#image1").val("");
@@ -201,7 +212,7 @@ function addEditAction() {
         // Pre-fill form with field data
         $("#FieldId1").val(field.fieldCode);
         $("#name1").val(field.fieldName);
-        $("#StaffId1").val(field.Field_Staff);
+
         $("#ExtentSize1").val(field.extent_size);
         $("#logId1").val(field.logCode);
         $('#location1').val(`${field.fieldLocation.x}, ${field.fieldLocation.y}`);
@@ -251,7 +262,7 @@ function UpdateField() {
     let token = localStorage.getItem("token");
     let FieldId = $(`#FieldId1`).val();
     let name = $(`#name1`).val();
-    let StaffId = $(`#StaffId1`).val();
+
     let ExtentSize = $(`#ExtentSize1`).val();
     let logId = $(`#logId1`).val();
     let image1 = $(`#image11`)[0].files[0];
@@ -265,7 +276,7 @@ function UpdateField() {
     formData.append("extent_size", ExtentSize);
     formData.append("fieldImageOne", image1);
     formData.append("fieldImageTwo", image2);
-    formData.append("Field_Staff", StaffId);
+
     formData.append("logCode", logId);
 
     $.ajax({
@@ -284,6 +295,55 @@ function UpdateField() {
         },
         error: function () {
             alert("Error updating the Field. Please try again.");
+        }
+    });
+}
+function getNextID(){
+    let token = localStorage.getItem("token");
+    $.ajax({
+        method: "GET",
+        url: "http://localhost:8080/api/v1/field/nextcode",
+        headers: {
+            "Authorization": "Bearer " + token
+        },
+
+        success: function (data) {
+            console.log(data.data)
+            $(`#FieldId`).val(data.data);
+
+        },
+        error: function () {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error!',
+                text: 'Error get the ID.',
+                background: 'rgba(65,65,66,0.18)',
+                showConfirmButton: true
+            });
+        }
+    });
+}
+function getLogIds() {
+    let token = localStorage.getItem("token");
+    $.ajax({
+        method: "GET",
+        url: "http://localhost:8080/api/v1/logs/ids",
+        headers: {
+            "Authorization": "Bearer " + token
+        },
+        success: function (data) {
+            // Empty and populate #FieldId
+            $("#logId").empty().append(`<option value="">Select Logs</option>`);
+            // Empty and populate #FieldId1
+            $("#logId1").empty().append(`<option value="">Select Logs</option>`);
+
+            data.forEach(function (id) {
+                $("#logId").append(`<option value="${id}">${id}</option>`);
+                $("#logId1").append(`<option value="${id}">${id}</option>`);
+            });
+        },
+        error: function () {
+            alert("Error fetching IDs.");
         }
     });
 }

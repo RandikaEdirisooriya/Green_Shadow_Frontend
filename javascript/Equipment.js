@@ -1,5 +1,8 @@
 $(document).ready(function () {
     getAllEquipment();
+    getNextID()
+    getStaffIds();
+    getFieldIds()
 });
 
 function addEquipment() {
@@ -27,6 +30,7 @@ function addEquipment() {
             "fieldCode": field
         }),
         success: function (response) {
+            getNextID();
             Swal.fire({
                 icon: 'success',
                 title: 'Equipment Added!',
@@ -227,3 +231,77 @@ function deleteEquipment(equipmentId) {
         }
     });
 }
+function getNextID(){
+    let token = localStorage.getItem("token");
+    $.ajax({
+        method: "GET",
+        url: "http://localhost:8080/api/v1/equipment/nextcode",
+        headers: {
+            "Authorization": "Bearer " + token
+        },
+
+        success: function (data) {
+            console.log(data.data)
+            $(`#EquipmentId`).val(data.data);
+
+        },
+        error: function () {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error!',
+                text: 'Error get the ID.',
+                background: 'rgba(65,65,66,0.18)',
+                showConfirmButton: true
+            });
+        }
+    });
+}
+
+function getStaffIds() {
+    let token = localStorage.getItem("token");
+    $.ajax({
+        method: "GET",
+        url: "http://localhost:8080/api/v1/staff/ids",
+        headers: {
+            "Authorization": "Bearer " + token
+        },
+        success: function (data) {
+            $("#staff").empty().append(`<option value="">Select Staff</option>`);
+            // Empty and populate #FieldId1
+            $("#staff1").empty().append(`<option value="">Select Staff</option>`);
+
+            data.forEach(function (id) {
+                $("#staff").append(`<option value="${id}">${id}</option>`);
+                $("#staff1").append(`<option value="${id}">${id}</option>`);
+            });
+        },
+        error: function () {
+            alert("Error fetching staff IDs.");
+        }
+    });
+}
+function getFieldIds() {
+    let token = localStorage.getItem("token");
+    $.ajax({
+        method: "GET",
+        url: "http://localhost:8080/api/v1/field/ids",
+        headers: {
+            "Authorization": "Bearer " + token
+        },
+        success: function (data) {
+            // Empty and populate #FieldId
+            $("#field").empty().append(`<option value="">Select Field</option>`);
+            // Empty and populate #FieldId1
+            $("#field1").empty().append(`<option value="">Select Field</option>`);
+
+            data.forEach(function (id) {
+                $("#field").append(`<option value="${id}">${id}</option>`);
+                $("#field1").append(`<option value="${id}">${id}</option>`);
+            });
+        },
+        error: function () {
+            alert("Error fetching IDs.");
+        }
+    });
+}
+

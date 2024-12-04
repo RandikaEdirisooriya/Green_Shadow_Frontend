@@ -1,8 +1,9 @@
-let firstname, lastname, designation, buildingName, laneName, city, postalCode, gender, email, role, logId, Province, contact_No, dob, joinedDate;
-$(document).ready(function() {
+$(document).ready(function () {
     getAllStaff();
-
+    getStaffIds();
+    getFieldIds()
 });
+
 function getstaffById(StaffID, callback) {
     let token = localStorage.getItem("token");
     $.ajax({
@@ -12,25 +13,21 @@ function getstaffById(StaffID, callback) {
             "Authorization": "Bearer " + token
         },
         success: function (data) {
-            console.log(data);
-            // Assign staff data to variables
             firstname = data.firstName;
             lastname = data.lastName;
             designation = data.designation;
-            buildingName = data.buildingName;
-            laneName = data.laneName;
-            city = data.city;
-            postalCode = data.postalCode;
+            buildingName = data.addressOne;
+            laneName = data.addressTwo;
+            city = data.addressThree;
+            postalCode = data.addressFour;
+            Province = data.addressFive;
             gender = data.gender;
             email = data.email;
             role = data.role;
-            logId = data.logId;
-            Province = data.Province;
+            logId = data.logCode;
             contact_No = data.contact_No;
             dob = data.dob;
             joinedDate = data.joinedDate;
-
-            // Call the callback function after data is fetched
             callback();
         },
         error: function () {
@@ -43,8 +40,7 @@ function addFieldStaff() {
     let FieldId = $("#FieldId").val();
     let StaffID = $("#StaffID").val();
 
-    // Fetch staff data before proceeding
-    getstaffById(StaffID, function() {
+    getstaffById(StaffID, function () {
         let token = localStorage.getItem("token");
 
         $.ajax({
@@ -74,10 +70,10 @@ function addFieldStaff() {
                         "fieldCode": FieldId
                     }
                 ],
-                "LogId": logId
+                "logCode": logId
             }),
             success: function () {
-                getAllStaff(); // Refresh staff list after adding field
+                getAllStaff();
                 alert("Field Added");
             },
             error: function () {
@@ -88,7 +84,6 @@ function addFieldStaff() {
 }
 
 function getAllStaff() {
-
     let token = localStorage.getItem("token");
     $.ajax({
         method: "GET",
@@ -127,3 +122,43 @@ function getAllStaff() {
         }
     });
 }
+
+function getStaffIds() {
+    let token = localStorage.getItem("token");
+    $.ajax({
+        method: "GET",
+        url: "http://localhost:8080/api/v1/staff/ids",
+        headers: {
+            "Authorization": "Bearer " + token
+        },
+        success: function (data) {
+            $("#StaffID").empty().append(`<option value="">Select Staff</option>`);
+            data.forEach(function (id) {
+                $("#StaffID").append(`<option value="${id}">${id}</option>`);
+            });
+        },
+        error: function () {
+            alert("Error fetching staff IDs.");
+        }
+    });
+}
+function getFieldIds() {
+    let token = localStorage.getItem("token");
+    $.ajax({
+        method: "GET",
+        url: "http://localhost:8080/api/v1/field/ids",
+        headers: {
+            "Authorization": "Bearer " + token
+        },
+        success: function (data) {
+            $("#FieldId").empty().append(`<option value="">Select Field</option>`);
+            data.forEach(function (id) {
+                $("#FieldId").append(`<option value="${id}">${id}</option>`);
+            });
+        },
+        error: function () {
+            alert("Error fetching  IDs.");
+        }
+    });
+}
+
