@@ -88,6 +88,7 @@ function addFieldStaff() {
 }
 
 function getAllStaff() {
+
     let token = localStorage.getItem("token");
     $.ajax({
         method: "GET",
