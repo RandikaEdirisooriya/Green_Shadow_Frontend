@@ -38,8 +38,8 @@ $(document).ready(function () {
 // Function to add a new field
 function addField() {
     // Convert latitude and longitude to integers if needed
-    const latitudeFloat = parseFloat(latitude);
-    const longitudeFloat = parseFloat(longitude);
+    const latitudeFloat = parseInt(latitude);
+    const longitudeFloat = parseInt(longitude);
 
     let FieldId = $(`#FieldId`).val();
     let name = $(`#name`).val();
@@ -58,7 +58,7 @@ function addField() {
     formData.append("extent_size", ExtentSize);
     formData.append("fieldImageOne", image1);
     formData.append("fieldImageTwo", image2);
-    formData.append("Field_Staff", StaffId);
+
     formData.append("logCode", logId);
 
     let token = localStorage.getItem("token");
@@ -95,7 +95,6 @@ function clearForm() {
     $('#location').val("");
 }
 
-// Function to retrieve all fields and display in a table
 function getAllFields() {
     let token = localStorage.getItem("token");
 
@@ -117,8 +116,8 @@ function getAllFields() {
                         <td>${field.fieldName}</td>
                         <td>${field.fieldLocation.x}, ${field.fieldLocation.y}</td>
                         <td>${field.extent_size}</td>
-                        <td><img src="data:image/jpeg;base64,${Image1}" alt="Image 1" class="img-fluid img-thumbnail" style="width: 30px; height: 30px; border-radius: 30px;" /></td>
-                        <td><img src="data:image/jpeg;base64,${Image2}" alt="Image 2" class="img-fluid img-thumbnail" style="width: 30px; height: 30px; border-radius: 30px;" /></td>
+                        <td><img src="data:image/jpeg;base64,${Image1}" alt="Image 1" class="img-fluid img-thumbnail preview-image" data-bs-toggle="modal" data-bs-target="#imagePreviewModal" data-image="data:image/jpeg;base64,${Image1}" style="width: 30px; height: 30px; border-radius: 30px;" /></td>
+                        <td><img src="data:image/jpeg;base64,${Image2}" alt="Image 2" class="img-fluid img-thumbnail preview-image" data-bs-toggle="modal" data-bs-target="#imagePreviewModal" data-image="data:image/jpeg;base64,${Image2}" style="width: 30px; height: 30px; border-radius: 30px;" /></td>
                         <td>${field.logCode}</td>
                         <td>
                             <div class="action-btns">
@@ -145,6 +144,13 @@ function getAllFields() {
         }
     });
 }
+
+// JavaScript for opening image in modal
+$(document).on("click", ".preview-image", function() {
+    var imageSrc = $(this).data("image"); // Get the image source from the data attribute
+    $("#previewImage").attr("src", imageSrc); // Set the modal image source to the clicked image source
+});
+
 
 // Function to handle the delete action
 function addDeleteAction() {

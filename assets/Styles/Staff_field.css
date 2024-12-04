@@ -1,0 +1,353 @@
+.glass-container {
+    margin-top: calc(var(--header-height) + 1rem);
+    margin-left: calc(var(--nav-width) + 1rem);
+    padding: 1rem;
+    transition: 0.4s;
+}
+.glass-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+.glass-card {
+    background: linear-gradient(135deg, rgba(47, 47, 47, 0.98) 0%, rgba(118, 255, 179, 0.04) 100%);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 10px 15px rgba(4, 19, 21, 0.55);
+}
+.table-container {
+    background: rgba(255, 255, 255, 0);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    padding: 20px;
+}
+
+.btn-primary {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    backdrop-filter: blur(5px);
+}
+.btn-primary:hover {
+    background: rgba(82, 249, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    backdrop-filter: blur(5px);
+}
+
+.btn-light {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    backdrop-filter: blur(5px);
+}
+
+.table {
+    margin-top: 20px;
+    background-color: transparent !important;
+
+}
+
+.table th {
+    font-weight: 500;
+    font-weight: bold;
+    text-shadow: rgba(0, 0, 0, 0.79) 0.2em 0.2em 0.2em;
+    color: rgba(6, 171, 133, 0.87);
+
+    background-color: transparent !important;
+
+}
+.table td {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.58);
+    background-color: transparent !important;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-role {
+    padding: 4px 8px;
+    border-radius: 15px;
+    font-size: 14px;
+    background: rgba(248, 249, 250, 0.02);
+
+
+}
+
+.role-admin {
+    background: rgba(227, 242, 253, 0.14);
+    color: rgba(118, 255, 179, 0.54);
+}
+
+.role-moderator {
+    background: #f3e5f5;
+    color: #9c27b0;
+}
+
+.role-viewer {
+    background: rgba(245, 245, 245, 0.14);
+    color: rgba(134, 8, 34, 0.53);
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 6px;
+}
+
+.status-active {
+    background: #4caf50;
+}
+
+.status-inactive {
+    background: #f44336;
+}
+
+.social-icons i {
+    color: #6c757d;
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+.form-switch {
+    padding-left: 2.5em;
+}
+
+.rating {
+    font-weight: 500;
+}
+
+.rating-up {
+    color: #4caf50;
+}
+
+.rating-down {
+    color: #f44336;
+}
+
+.pagination {
+    margin-bottom: 0;
+}
+
+.rows-select {
+    color: #6c757d;
+    font-size: 14px;
+}
+
+.action-btns {
+    display: flex;
+    align-items: center;
+}
+
+.action-btns .btn-link {
+    font-size: 14px;
+}
+
+.action-btns .btn-link:hover {
+    transform: translateY(-8px) scale(1.0);
+    opacity: 0.8;
+}
+.tbody{
+    background: rgba(255, 255, 255, 0);
+
+}
+.glass-card:hover {
+    transform: translateY(-8px) scale(1.0);
+    box-shadow: 0 0 25px rgba(0, 255, 208, 0.12), 0 0 50px rgba(0, 224, 255, 0.13);
+}
+
+
+
+
+.modal-content {
+    position: relative;
+    z-index: 1050; /* Ensure modal content appears above the overlay */
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.48); /* Adjust opacity here */
+    z-index: 1040; /* Make sure it’s above other elements but below the modal */
+    display: none; /* Initially hidden */
+}
+
+
+.modal{
+    background: rgba(17, 12, 15, 0.55) !important;
+    width: 100vw !important;
+}
+
+
+
+
+.modal-content {
+    background: rgba(167, 167, 168, 0.03);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 1.5rem; /* Slightly increased padding */
+    width: 100%;
+    max-width: 450px; /* Slightly increased max-width */
+    box-shadow: 0 9px 40px rgba(0, 234, 255, 0.14);
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #00e0ff, #00ffa0);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.logo-icon {
+    color: #00e0ff;
+    font-size: 24px;
+}
+
+h1 {
+    color: rgba(0, 255, 160, 0.59);
+    font-weight: 700;
+    margin-bottom: 1rem; /* Slightly increased margin */
+    text-align: center;
+    font-size: 1.4rem; /* Slightly increased font size */
+}
+
+.form-control1 {
+    background: rgba(0, 230, 200, 0.07);
+    border: none;
+    width: 100%;
+    color: #ffffff;
+    padding: 0.4rem 0.8rem; /* Slightly increased padding */
+    margin-bottom: 0.6rem; /* Slightly increased margin */
+    transition: all 0.3s ease;
+    font-size: 0.85rem; /* Slightly increased font size */
+    border-radius: 10px;
+}
+
+.form-control1:focus {
+    background: rgba(0, 230, 200, 0.2);
+    box-shadow: 0 0 0 2px rgba(0, 230, 200, 0.5);
+}
+
+.form-control1::placeholder {
+    color: rgba(0, 230, 200, 0.6);
+}
+
+.btn-primary1 {
+    background: linear-gradient(135deg, #00e0ff, rgba(0, 255, 149, 0.49));
+    border: none;
+    padding: 0.6rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 0.85rem; /* Slightly increased font size */
+    border-radius: 20px;
+}
+
+.btn-primary1:hover {
+    background: linear-gradient(135deg, #00c8e5, #00e090);
+    transform: translateY(-2px);
+}
+
+
+
+.signup-link {
+    color: #00ffa0;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.85rem; /* Slightly increased font size */
+}
+
+.signup-link:hover {
+    color: #00e0ff;
+}
+
+
+
+.users-count strong {
+    color: #00ffa0;
+    font-weight: 600;
+}
+
+
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0px); }
+}
+
+.floating {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Custom file input style */
+input[type="file"] {
+    background: rgba(0, 230, 200, 0.1);
+    color: #00e0ff;
+    padding: 0.4rem 0.8rem; /* Slightly increased padding */
+    margin-bottom: 0.6rem;
+    border: none;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    width: 100%;
+}
+
+input[type="file"]:focus {
+    background: rgba(0, 230, 200, 0.2);
+    box-shadow: 0 0 0 2px rgba(0, 230, 200, 0.5);
+}
+
+input[type="file"]::-webkit-file-upload-button {
+    background: linear-gradient(135deg, rgba(0, 224, 255, 0.69), rgba(0, 255, 149, 0.49));
+    border: none;
+    color: rgba(112, 111, 111, 0.96);
+    padding: 0.6rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.65rem;
+    border-radius: 10px;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+    background: linear-gradient(135deg, rgba(0, 200, 229, 0.71), rgba(0, 224, 144, 0.56));
+    transform: translateY(-2px);
+}
+#map {
+    height: 200px;
+    width: 100%;
+}
+#map1 {
+    height: 200px;
+    width: 100%;
+}
+#video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; /* Makes the video fill the container width */
+    height: 100%; /* Makes the video fill the container height */
+    object-fit: cover; /* Ensures the video covers the div without stretching */
+    background-color: rgba(30, 32, 33, 0.47);
+    border-radius: 16px;
+    opacity: 0.7;
+}

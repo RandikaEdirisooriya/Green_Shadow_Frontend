@@ -98,14 +98,13 @@ function getAllCrops() {
         }
     });
 }
-
-// Function to populate the table with crop data
 function populateTable(crops) {
     $(".table tbody").empty(); // Clear existing rows
 
     crops.forEach(crop => {
         let base64Image = crop.cropImage; // Base64 image string
-        let imgElement = `<img src="data:image/png;base64,${base64Image}" alt="${crop.commonName}" class="img-fluid img-thumbnail" style="width: 30px; height: 30px; border-radius: 30px; margin-right: 50%;">`;
+        // Modify the image element to allow for preview
+        let imgElement = `<img src="data:image/png;base64,${base64Image}" alt="${crop.commonName}" class="img-fluid img-thumbnail preview-image" data-bs-toggle="modal" data-bs-target="#imagePreviewModal" data-image="data:image/png;base64,${base64Image}" style="width: 30px; height: 30px; border-radius: 30px; margin-right: 50%;">`;
 
         let row = `
             <tr>
@@ -119,9 +118,9 @@ function populateTable(crops) {
                 <td>${crop.logCode}</td>
                 <td>
                     <div class="action-btns">
-                     <button class="btn btn-link text-warning p-0 me-2 edit-btn" data-crop='${JSON.stringify(crop)}'>
-                        <i class="bi bi-pencil-fill"></i>
-                    </button>
+                        <button class="btn btn-link text-warning p-0 me-2 edit-btn" data-crop='${JSON.stringify(crop)}'>
+                            <i class="bi bi-pencil-fill"></i>
+                        </button>
                         <button class="btn btn-link text-danger p-0 delete-btn">
                             <i class="bi bi-trash-fill"></i>
                         </button>
@@ -135,6 +134,13 @@ function populateTable(crops) {
     addDeleteAction();
     addEditAction();
 }
+
+// JavaScript for opening image in modal
+$(document).on("click", ".preview-image", function() {
+    var imageSrc = $(this).data("image"); // Get the image source from the data attribute
+    $("#previewImage").attr("src", imageSrc); // Set the modal image source to the clicked image source
+});
+
 
 // Function to handle delete action
 function addDeleteAction() {

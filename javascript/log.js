@@ -61,6 +61,7 @@ function clearForm() {
 
 function getAllLogs() {
     let token = localStorage.getItem("token");
+
     $.ajax({
         method: "GET",
         url: "http://localhost:8080/api/v1/logs",
@@ -72,12 +73,14 @@ function getAllLogs() {
                 $("table tbody").empty();
                 data.forEach(function (log) {
                     let observedImage = log.observedImage;
+                    let imgElement = `<img src="data:image/jpeg;base64,${observedImage}" alt="Observed Image" class="img-fluid img-thumbnail preview-image" data-bs-toggle="modal" data-bs-target="#imagePreviewModal" data-image="data:image/jpeg;base64,${observedImage}" style="width: 30px; height: 30px; border-radius: 30px; margin-right: 50%;">`;
+
                     let row = `<tr class="tbody">
                         <td>${log.logCode}</td>
                         <td>${log.logDate}</td>
                         <td>${log.logDetails}</td>
                         <td style="width: 30px;">
-                            <img src="data:image/jpeg;base64,${observedImage}" alt="Observed Image" class="img-fluid img-thumbnail" style="width: 30px; height: 30px; border-radius: 30px; margin-right: 50%;" />
+                            ${imgElement}
                         </td>
                         <td>${log.section}</td>
                         <td>${log.sectionId}</td>
@@ -113,6 +116,13 @@ function getAllLogs() {
         }
     });
 }
+
+// JavaScript for opening image in modal
+$(document).on("click", ".preview-image", function() {
+    var imageSrc = $(this).data("image"); // Get the image source from the data attribute
+    $("#previewImage").attr("src", imageSrc); // Set the modal image source to the clicked image source
+});
+
 
 function addEditAction() {
     $(".edit-btn").off("click").on("click", function () {

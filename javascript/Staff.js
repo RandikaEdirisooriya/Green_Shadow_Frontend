@@ -245,7 +245,7 @@ function UpdateStaff(){
         },
         contentType: "application/json",
         data: JSON.stringify({
-            staffId: staffCode,
+
             firstName: firstName,
             lastName: lastName,
             designation: designation,

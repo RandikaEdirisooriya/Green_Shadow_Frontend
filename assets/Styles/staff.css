@@ -295,4 +295,24 @@ h1 {
 .floating {
     animation: float 6s ease-in-out infinite;
 }
+#map {
+    height: 200px;
+    width: 100%;
+}
+#map1 {
+    height: 200px;
+    width: 100%;
+}
+#video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; /* Makes the video fill the container width */
+    height: 100%; /* Makes the video fill the container height */
+    object-fit: cover; /* Ensures the video covers the div without stretching */
+    background-color: rgba(30, 32, 33, 0.47);
+    border-radius: 16px;
+    opacity: 0.7;
+}
 
